@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the source registry, evidence records and citation markers.
+"""Validate the source registry, evidence records, citation markers and handoffs.
 
 Exit status is non-zero when the repository would publish an unsupported claim,
 an unregistered citation, a malformed record, (with ``--strict``) a knowledge
