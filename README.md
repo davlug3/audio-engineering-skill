@@ -71,7 +71,9 @@ engineering:
    [`templates/stage-budget.md`](templates/stage-budget.md) and
    [`templates/psu-budget.md`](templates/psu-budget.md).
 5. Emit a handoff per [`references/handoff.md`](references/handoff.md).
-6. Run `python3 scripts/source_check.py --strict` before publishing.
+6. Validate the handoff with
+   `python3 scripts/source_check.py --strict --handoff <your-handoff.json>`
+   before publishing. `examples/mic-preamp-handoff.json` is a complete example.
 7. Hand the handoff to `circuit-design-skill` for simulation and drawings.
 
 ## Repository layout
@@ -82,7 +84,8 @@ references/               scope, research, sources, handoff, knowledge documents
 catalog/sources.json      source registry
 evidence/                 claim records (JSONL)
 templates/                requirements, budgets, decision record, measurement, handoff
-scripts/source_check.py   registry/evidence/citation linter
+examples/                 complete handoff example
+scripts/source_check.py   registry/evidence/citation/handoff linter
 scripts/check_links.py    registry URL checker (opt-in)
 tests/                    unit tests
 .github/workflows/ci.yml  CI

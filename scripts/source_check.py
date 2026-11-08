@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA_VERSION = 1
+HANDOFF_VERSION = 1
 SOURCE_ID_RE = re.compile(r"^S\d{3}$")
 CLAIM_ID_RE = re.compile(r"^C\d{3}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -196,6 +197,104 @@ def check_evidence(root: Path, sources: dict[str, dict[str, Any]]) -> tuple[set[
     return claims, errors
 
 
+def check_handoff(path: Path, sources: dict[str, dict[str, Any]]) -> list[str]:
+    """Validate a handoff JSON file against the registry and its own ids.
+
+    The handoff is the only contract between this skill and
+    ``circuit-design-skill``.  A source id that is unregistered, unverified or
+    absent from the handoff's own ``sources`` list is a broken contract.
+    """
+    errors: list[str] = []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"{path}: {exc}"]
+    if not isinstance(data, dict):
+        return [f"{path}: top level must be an object"]
+    if data.get("handoff_version") != HANDOFF_VERSION:
+        errors.append(f"{path}: handoff_version must be {HANDOFF_VERSION}")
+
+    requirements = data.get("requirements")
+    if not isinstance(requirements, list) or not requirements:
+        errors.append(f"{path}: requirements must be a non-empty list")
+        requirements = []
+    requirement_ids: set[str] = set()
+    requirement_sources: set[str] = set()
+    for index, requirement in enumerate(requirements):
+        where = f"{path}: requirements[{index}]"
+        if not isinstance(requirement, dict):
+            errors.append(f"{where}: must be an object")
+            continue
+        rid = requirement.get("id")
+        if not isinstance(rid, str) or not rid:
+            errors.append(f"{where}: id must be a non-empty string")
+        elif rid in requirement_ids:
+            errors.append(f"{where}: duplicate requirement id {rid}")
+        else:
+            requirement_ids.add(rid)
+
+        sid = requirement.get("source")
+        if not isinstance(sid, str) or not SOURCE_ID_RE.match(sid):
+            errors.append(f"{where}: source must look like S001")
+            continue
+        requirement_sources.add(sid)
+        source = sources.get(sid)
+        if source is None:
+            errors.append(f"{where}: unknown source {sid}")
+        elif source.get("status") != "verified":
+            errors.append(
+                f"{where}: source {sid} is {source.get('status')!r}, not verified")
+
+    metrics = data.get("metrics")
+    if not isinstance(metrics, list) or not metrics:
+        errors.append(f"{path}: metrics must be a non-empty list")
+        metrics = []
+    for index, metric in enumerate(metrics):
+        where = f"{path}: metrics[{index}]"
+        if not isinstance(metric, dict):
+            errors.append(f"{where}: must be an object")
+            continue
+        rid = metric.get("requirement")
+        if not isinstance(rid, str) or rid not in requirement_ids:
+            errors.append(
+                f"{where}: requirement {rid!r} is absent from requirements")
+        for field in ("measure", "target", "tolerance"):
+            if field not in metric:
+                errors.append(f"{where}: missing {field}")
+
+    listed = data.get("sources")
+    if not isinstance(listed, list) or not listed:
+        errors.append(f"{path}: sources must be a non-empty list")
+        listed = []
+    listed_ids: set[str] = set()
+    for index, source in enumerate(listed):
+        where = f"{path}: sources[{index}]"
+        if not isinstance(source, dict):
+            errors.append(f"{where}: must be an object")
+            continue
+        sid = source.get("id")
+        if not isinstance(sid, str) or not SOURCE_ID_RE.match(sid):
+            errors.append(f"{where}: id must look like S001")
+            continue
+        listed_ids.add(sid)
+        if not isinstance(source.get("title"), str) or not source["title"].strip():
+            errors.append(f"{where}: title must be a non-empty string")
+        accessed = source.get("accessed")
+        if not isinstance(accessed, str) or not DATE_RE.match(accessed):
+            errors.append(f"{where}: accessed must be YYYY-MM-DD")
+        registry_source = sources.get(sid)
+        if registry_source is None:
+            errors.append(f"{where}: unknown source {sid}")
+        elif registry_source.get("status") != "verified":
+            errors.append(f"{where}: source {sid} is not verified")
+
+    missing = requirement_sources - listed_ids
+    if missing:
+        errors.append(
+            f"{path}: sources missing {', '.join(sorted(missing))}")
+    return errors
+
+
 def check_citations(root: Path, sources: dict[str, dict[str, Any]],
                     claims: set[str]) -> tuple[int, list[str]]:
     errors: list[str] = []
@@ -249,7 +348,8 @@ def check_docs(root: Path, strict: bool) -> tuple[int, list[str], list[str]]:
     return checked, errors, warnings
 
 
-def check(root: Path, strict: bool = False) -> dict[str, Any]:
+def check(root: Path, strict: bool = False,
+          handoffs: list[str] | None = None) -> dict[str, Any]:
     sources, registry_errors, registry_warnings = check_registry(root)
     errors = list(registry_errors)
     warnings = list(registry_warnings)
@@ -260,6 +360,9 @@ def check(root: Path, strict: bool = False) -> dict[str, Any]:
     docs, doc_errors, doc_warnings = check_docs(root, strict)
     errors.extend(doc_errors)
     warnings.extend(doc_warnings)
+    handoff_paths = [Path(path) for path in handoffs or []]
+    for path in handoff_paths:
+        errors.extend(check_handoff(path, sources))
     return {
         "ok": not errors,
         "strict": strict,
@@ -272,6 +375,7 @@ def check(root: Path, strict: bool = False) -> dict[str, Any]:
             "claims": len(claims),
             "documents_scanned": scanned,
             "knowledge_documents": docs,
+            "handoffs_checked": len(handoff_paths),
         },
     }
 
@@ -281,7 +385,8 @@ def print_human(result: dict[str, Any]) -> None:
     print(f"sources: {counts['sources']} "
           f"({counts['verified']} verified), claims: {counts['claims']}, "
           f"documents: {counts['documents_scanned']} scanned, "
-          f"{counts['knowledge_documents']} knowledge")
+          f"{counts['knowledge_documents']} knowledge, "
+          f"handoffs: {counts['handoffs_checked']}")
     for warning in result["warnings"]:
         print(f"warning: {warning}")
     for error in result["errors"]:
@@ -295,9 +400,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--json", action="store_true", help="machine-readable output")
     parser.add_argument("--strict", action="store_true",
                         help="treat missing Sources sections as errors")
+    parser.add_argument("--handoff", action="append", default=[], metavar="PATH",
+                        help="validate a handoff JSON file (repeatable)")
     args = parser.parse_args(argv)
 
-    result = check(Path(args.root).resolve(), strict=args.strict)
+    result = check(Path(args.root).resolve(), strict=args.strict,
+                   handoffs=args.handoff)
     if args.json:
         print(json.dumps(result, indent=2))
     else:

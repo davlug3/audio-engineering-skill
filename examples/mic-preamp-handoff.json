@@ -1,0 +1,75 @@
+{
+  "handoff_version": 1,
+  "application": "microphone preamplifier",
+  "description": "Example handoff. Targets are planning data until simulated and measured.",
+  "conditions": {
+    "input_vrms": 0.002,
+    "frequency_hz": 1000,
+    "load_ohm": 10000,
+    "bandwidth_hz": [20, 20000],
+    "temperature_c": 25
+  },
+  "architecture": {
+    "summary": "Balanced input, difference amplifier, gain stage and balanced line driver",
+    "blocks": [
+      "input protection",
+      "difference amplifier",
+      "gain stage",
+      "line driver"
+    ],
+    "supplies": [
+      {"name": "V+", "voltage": 15},
+      {"name": "V-", "voltage": -15}
+    ]
+  },
+  "requirements": [
+    {
+      "id": "A1",
+      "text": "Flat gain",
+      "acceptance": "40 +/-0.5 dB, 20 Hz to 20 kHz, 10 kOhm load",
+      "source": "S041"
+    },
+    {
+      "id": "A2",
+      "text": "Input-referred noise",
+      "acceptance": "<= 1.0 uV RMS, 20 Hz to 20 kHz, 150 Ohm source",
+      "source": "S045"
+    }
+  ],
+  "metrics": [
+    {
+      "measure": "gain_db",
+      "target": 40.0,
+      "tolerance": 0.5,
+      "requirement": "A1"
+    },
+    {
+      "measure": "ein_uv",
+      "target": 1.0,
+      "tolerance": 0.0,
+      "requirement": "A2"
+    }
+  ],
+  "risks": [
+    {
+      "id": "R1",
+      "risk": "RF rectification at the input",
+      "mitigation": "input RC and common-mode choke",
+      "verification": "bench RF injection"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S041",
+      "title": "RaneNote 145: Audio Specifications",
+      "url": "https://www.ranecommercial.com/legacy/note145.html",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "S045",
+      "title": "Noise in Audio Amplifiers",
+      "url": "https://sound-au.com/noise.htm",
+      "accessed": "2026-11-08"
+    }
+  ]
+}

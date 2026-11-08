@@ -1,5 +1,5 @@
 {
-  "_comment": "Template. Replace every placeholder and register the sources in catalog/sources.json before handing off.",
+  "_comment": "Template. Replace every placeholder, register the sources, then run: python3 scripts/source_check.py --handoff <this file>.",
   "handoff_version": 1,
   "application": "APPLICATION",
   "description": "ONE-LINE DESCRIPTION",

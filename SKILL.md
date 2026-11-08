@@ -116,8 +116,12 @@ conditions and any perceptual hypothesis.
 ### 4. Handoff
 
 Emit a `handoff.json` (schema in `references/handoff.md`) containing
-requirements, conditions, target metrics and sources. `circuit-design-skill`
-merges it into a design spec, sizes components, simulates and verifies.
+requirements, conditions, target metrics and sources. Validate it with
+`python3 scripts/source_check.py --strict --handoff handoff.json`; the checker
+requires every requirement source to be verified and listed, and every metric
+to reference an existing requirement. `examples/mic-preamp-handoff.json` is a
+complete example. `circuit-design-skill` merges the handoff into a design
+spec, sizes components, simulates and verifies.
 
 ### 5. Measurement plan
 
@@ -196,7 +200,8 @@ references/               scope, research, sources, handoff, knowledge documents
 catalog/sources.json      verified and candidate sources
 evidence/                 claim records (JSONL)
 templates/                requirements, budgets, decision record, measurement, handoff
-scripts/source_check.py   registry/evidence/citation linter
+examples/                 complete handoff example
+scripts/source_check.py   registry/evidence/citation/handoff linter
 scripts/check_links.py    link and URL checker
 tests/                    unit tests
 ```

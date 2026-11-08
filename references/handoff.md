@@ -88,10 +88,13 @@ The circuit skill must reject a metric whose `requirement` id is absent.
 
 Before handoff:
 
-1. `python3 scripts/source_check.py --strict` passes.
-2. Every `source` id exists and is `verified`.
-3. Every metric has a condition and an acceptance limit.
-4. Every requirement has a test method in the measurement plan.
+1. `python3 scripts/source_check.py --strict --handoff <your-handoff.json>`
+   passes. The ready example is `examples/mic-preamp-handoff.json`.
+2. Every `source` id exists, is `verified` in `catalog/sources.json`, and is
+   listed in the handoff's own `sources[]`.
+3. Every metric references an existing requirement id.
+4. Every metric has a condition and an acceptance limit.
+5. Every requirement has a test method in the measurement plan.
 
 ## 5. Versioning
 

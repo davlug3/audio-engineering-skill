@@ -192,5 +192,94 @@ class TestDocs(unittest.TestCase):
         self.assertTrue(result["ok"], result["errors"])
 
 
+class TestHandoff(unittest.TestCase):
+    def setUp(self):
+        self.repo = Repo()
+
+    def tearDown(self):
+        self.repo.cleanup()
+
+    def handoff(self, **overrides):
+        payload = {
+            "handoff_version": 1,
+            "application": "test preamplifier",
+            "conditions": {
+                "input_vrms": 0.002,
+                "frequency_hz": 1000,
+                "load_ohm": 10000,
+            },
+            "requirements": [
+                {
+                    "id": "A1",
+                    "text": "Flat gain",
+                    "acceptance": "40 +/-0.5 dB, 20 Hz-20 kHz",
+                    "source": "S001",
+                }
+            ],
+            "metrics": [
+                {
+                    "measure": "gain_db",
+                    "target": 40.0,
+                    "tolerance": 0.5,
+                    "requirement": "A1",
+                }
+            ],
+            "sources": [
+                {
+                    "id": "S001",
+                    "title": "Test standard",
+                    "url": "https://example.invalid/standard",
+                    "accessed": "2026-11-08",
+                }
+            ],
+        }
+        payload.update(overrides)
+        return payload
+
+    def validate(self, payload):
+        path = self.repo.root / "handoff.json"
+        path.write_text(json.dumps(payload), encoding="utf-8")
+        return check(self.repo.root, handoffs=[str(path)])
+
+    def test_valid_handoff_passes(self):
+        result = self.validate(self.handoff())
+        self.assertTrue(result["ok"], result["errors"])
+        self.assertEqual(result["counts"]["handoffs_checked"], 1)
+
+    def test_unknown_requirement_source_fails(self):
+        payload = self.handoff()
+        payload["requirements"][0]["source"] = "S099"
+        payload["sources"][0]["id"] = "S099"
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("unknown source S099" in e for e in result["errors"]))
+
+    def test_candidate_source_fails(self):
+        self.repo.write_registry([make_source(status="candidate", accessed=None)])
+        result = self.validate(self.handoff())
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("not verified" in e for e in result["errors"]))
+
+    def test_metric_requirement_must_exist(self):
+        payload = self.handoff()
+        payload["metrics"][0]["requirement"] = "A9"
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("A9" in e for e in result["errors"]))
+
+    def test_requirement_source_must_be_listed(self):
+        payload = self.handoff()
+        payload["sources"] = []
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("sources missing S001" in e for e in result["errors"]))
+
+    def test_wrong_version_fails(self):
+        payload = self.handoff(handoff_version=2)
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("handoff_version" in e for e in result["errors"]))
+
+
 if __name__ == "__main__":
     unittest.main()

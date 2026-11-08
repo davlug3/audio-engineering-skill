@@ -39,8 +39,8 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m unittest discover -s tests -v
-      - name: Source and citation lint
-        run: python scripts/source_check.py --strict
+      - name: Source, citation and handoff lint
+        run: python scripts/source_check.py --strict --handoff examples/mic-preamp-handoff.json
       - name: Validate registry JSON
         run: python -m json.tool catalog/sources.json > /dev/null
 
