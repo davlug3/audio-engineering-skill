@@ -156,6 +156,9 @@ These are written from the claims in `evidence/` and each carries a
 
 - `references/analog-design.md` — noise, op-amp selection, distortion
   mechanisms, output stages and a microphone-preamplifier case study.
+- `references/small-signal-audio.md` — levels, impedance, gain distribution,
+  buffers, balanced and unbalanced interfaces, input protection, RF immunity
+  and tone controls.
 - `references/power-supplies.md` — transformer, rectifier and reservoir
   sizing, LM317/LDO regulators, capacitance multipliers, PSRR, fusing, inrush
   and supply layout.
@@ -164,9 +167,9 @@ These are written from the claims in `evidence/` and each carries a
 - `references/measurement.md` — THD, THD+N, IMD, S/N, EIN, CMRR, crosstalk,
   maximum levels and BS.1770 loudness.
 
-Planned but not yet written: `small-signal-audio.md`,
-`power-amplifiers.md`, `audio-topologies.md`, `acoustics.md`,
-`psychoacoustics.md`, `production.md`. Their open questions and the coverage
+Planned but not yet written: `power-amplifiers.md`,
+`audio-topologies.md`, `acoustics.md`, `psychoacoustics.md`,
+`production.md`. Their open questions and the coverage
 that already exists are tracked in `references/content-plan.md`.
 
 ## Handoff to circuit-design-skill

@@ -6,14 +6,16 @@ standing in for research.
 
 ## Current state
 
-- The registry has 59 entries: 29 `verified` and 30 `candidate`. Only verified
+- The registry has 60 entries: 30 `verified` and 30 `candidate`. Only verified
   entries may be cited.
-- 190 claim records exist across four evidence files:
-  `analog-design.jsonl` (48), `power-supplies.jsonl` (68),
-  `grounding-shielding.jsonl` (45) and `measurement.jsonl` (29).
-- Four knowledge documents are written: `analog-design.md`,
-  `power-supplies.md`, `grounding-shielding.md` and `measurement.md`.
-  They are evidence-backed practitioner guidance, not standards claims.
+- 221 claim records exist across five evidence files:
+  `analog-design.jsonl` (48), `small-signal.jsonl` (31),
+  `power-supplies.jsonl` (68), `grounding-shielding.jsonl` (45) and
+  `measurement.jsonl` (29).
+- Five knowledge documents are written: `analog-design.md`,
+  `small-signal-audio.md`, `power-supplies.md`, `grounding-shielding.md` and
+  `measurement.md`. They are evidence-backed practitioner guidance, not
+  standards claims.
 - `python scripts/source_check.py --strict --handoff examples/mic-preamp-handoff.json`
   passes, including the handoff contract checks.
 
@@ -22,7 +24,7 @@ standing in for research.
 | Topic | What is missing |
 |---|---|
 | Analog design | Thermal resistance, heatsink sizing and safe operating area for output devices; short-circuit and SOA protection; reactive-load ruggedness; op-amp stability/compensation and capacitive-load isolation; valve design; blind listening evidence for "sound quality" claims |
-| Small-signal audio | A dedicated document; input protection beyond the microphone case; RF immunity standards; gain blocks, buffers and impedance bridging; EQ and tone-stack topologies and their source/load interaction |
+| Small-signal audio | The document is written, but ESD/line-overvoltage protection, RF immunity test levels, parametric-EQ design procedure, transformer selection for isolation, balanced-output short-circuit protection, and potentiometer law/tolerance effects remain unsupported |
 | Power amplifiers | A dedicated document; thermal/SOA design; protection; reactive-load behaviour; Class-D; valve amplifiers; output-stage distortion beyond Self's measurements |
 | Power supplies | Switch-mode supply design for audio; mains creepage, clearance and insulation coordination; UL 6500/UL 62368-1/IEC 60065 full text; transformer thermal design; reservoir capacitor lifetime and ESR derating; bleeder sizing; soft-start component selection; LDO end-of-life stability; PSRR injection fixture |
 | Grounding | Shield transfer impedance and shielding-effectiveness numbers; RF immunity standards; UL 943 and IEC 61008/61009 full text; isolation-transformer selection; turntable/tonearm grounding; PCB stackup and return paths; leakage-current measurement method. Premises-wiring magnetic induction is covered by S056, and UL summaries of leakage and GFCI limits by S058/S059, but the standard text and the shield-transfer/PCB-level material are not |
@@ -74,7 +76,7 @@ design rule, while the research protocol required two independent sources.
 The policy now says: two independent sources are required; Tier 1/2 is
 preferred; where only Tier 3 exists, label the rule **practitioner guidance**
 and record the gap. Safety, regulatory and perceptual claims still require the
-governing standard or peer-reviewed evidence. This is the rule used by the four
+governing standard or peer-reviewed evidence. This is the rule used by the five
 documents above.
 
 ## Source access issues
@@ -99,11 +101,15 @@ remain `candidate` and are not cited.
 4. Add a source for switch-mode supply noise, layout and PSRR in audio.
 5. Add acoustics and psychoacoustics sources before writing those documents.
 6. Add a source for shield transfer impedance and RF immunity test levels.
-7. Add a source for capacitor lifetime and ESR versus temperature/ripple.
-8. Add a blind-listening study before making any "sounds better" claim.
-9. Open the full text of S057 and add a clause-level claim for its
-   parallel Wiener-Hammerstein measurement procedure.
-10. Open UL 6500, UL 943, and IEC 61008/61009 in full text and replace the
+7. Add a source for ESD and line-overvoltage protection of small-signal
+   inputs, and one for balanced-output short-circuit protection.
+8. Add a verified analog parametric-EQ design source and a source for
+   potentiometer law/tolerance effects.
+9. Add a source for capacitor lifetime and ESR versus temperature/ripple.
+10. Add a blind-listening study before making any "sounds better" claim.
+11. Open the full text of S057 and add a clause-level claim for its
+    parallel Wiener-Hammerstein measurement procedure.
+12. Open UL 6500, UL 943, and IEC 61008/61009 in full text and replace the
     UL and RCD summaries with clause-level claims.
 
 ## How to close a gap

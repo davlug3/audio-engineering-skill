@@ -63,6 +63,7 @@ engineering:
 1. Read the intake questions in [`templates/audio-requirements.md`](templates/audio-requirements.md).
 2. Read the relevant knowledge document:
    [`analog-design.md`](references/analog-design.md),
+   [`small-signal-audio.md`](references/small-signal-audio.md),
    [`power-supplies.md`](references/power-supplies.md),
    [`grounding-shielding.md`](references/grounding-shielding.md) or
    [`measurement.md`](references/measurement.md).
@@ -94,11 +95,14 @@ tests/                    unit tests
 ## Status
 
 This repository is built evidence-first. Governance, the registry, the handoff
-contract and validator, and four knowledge documents are in place:
+contract and validator, and five knowledge documents are in place:
 
 - [`references/analog-design.md`](references/analog-design.md) — noise, op-amp
   selection, distortion mechanisms, output stages and a microphone-preamplifier
   case study;
+- [`references/small-signal-audio.md`](references/small-signal-audio.md) —
+  levels, impedance, gain distribution, buffers, balanced and unbalanced
+  interfaces, input protection, RF immunity and tone controls;
 - [`references/power-supplies.md`](references/power-supplies.md) — transformer,
   rectifier and reservoir sizing, LM317/LDO regulators, capacitance
   multipliers, PSRR, fusing and supply layout;

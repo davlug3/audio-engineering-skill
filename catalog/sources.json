@@ -1274,6 +1274,28 @@
         "GFCI"
       ],
       "note": "UL article from the January 2009 issue. It summarizes NEC Article 100 and UL 943; it is not the standard text."
+    },
+    {
+      "id": "S060",
+      "tier": 3,
+      "title": "Equalisers, The Various Types And How They Work",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2021,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/articles/eq.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "equalisers",
+        "tone-controls",
+        "filters",
+        "small-signal-audio"
+      ],
+      "note": "Copyright March 2015; updated February 2021. Named-author practitioner article; the circuits were simulated but not built as shown."
     }
   ]
 }

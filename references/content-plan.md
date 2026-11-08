@@ -11,7 +11,7 @@ honest gap.
 | Governance | `scope.md`, `research-protocol.md`, `source-policy.md`, `handoff.md` | written |
 | Governance | registry, evidence schema, linter, handoff validator, example, CI | written |
 | Analog | `analog-design.md` | written, practitioner guidance; gaps recorded |
-| Analog | `small-signal-audio.md` | not started; noise, op-amp selection and mic preamp are covered in `analog-design.md` §2, §3 and §6, but the dedicated treatment is still pending |
+| Analog | `small-signal-audio.md` | written, practitioner guidance; levels, impedance, gain blocks, buffers, balanced I/O, protection, RFI and tone controls; ESD/line-overvoltage and parametric EQ procedures are gaps |
 | Analog | `power-amplifiers.md` | not started; distortion mechanisms and output stages are covered in `analog-design.md` §4 and §5, but thermal/SOA/protection are still gaps |
 | Power | `power-supplies.md` | written, practitioner guidance; mains safety details and SMPS are gaps |
 | Power | `grounding-shielding.md` | written; includes the ESP/Whitlock leakage reconciliation |

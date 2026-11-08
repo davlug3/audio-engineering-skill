@@ -4,6 +4,7 @@ One JSON object per line (JSONL), grouped by topic:
 
 ```
 evidence/analog-design.jsonl
+evidence/small-signal.jsonl
 evidence/power-supplies.jsonl
 evidence/grounding-shielding.jsonl
 evidence/measurement.jsonl
