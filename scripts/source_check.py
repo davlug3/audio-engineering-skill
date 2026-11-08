@@ -255,13 +255,31 @@ def check_handoff(path: Path, sources: dict[str, dict[str, Any]]) -> list[str]:
         if not isinstance(metric, dict):
             errors.append(f"{where}: must be an object")
             continue
+        measure = metric.get("measure")
+        if not isinstance(measure, str) or not measure.strip():
+            errors.append(f"{where}: measure must be a non-empty string")
         rid = metric.get("requirement")
-        if not isinstance(rid, str) or rid not in requirement_ids:
+        if rid is None:
+            if not metric.get("exploratory"):
+                errors.append(
+                    f"{where}: needs a requirement or exploratory=true")
+        elif not isinstance(rid, str) or rid not in requirement_ids:
             errors.append(
                 f"{where}: requirement {rid!r} is absent from requirements")
-        for field in ("measure", "target", "tolerance"):
-            if field not in metric:
-                errors.append(f"{where}: missing {field}")
+        has_target = "target" in metric
+        has_limit = "max" in metric or "min" in metric
+        if not has_target and not has_limit:
+            errors.append(f"{where}: needs target+tolerance, max or min")
+        if has_target:
+            if not isinstance(metric["target"], (int, float)):
+                errors.append(f"{where}: target must be numeric")
+            if "tolerance" not in metric:
+                errors.append(f"{where}: target needs tolerance")
+            elif not isinstance(metric["tolerance"], (int, float)):
+                errors.append(f"{where}: tolerance must be numeric")
+        for limit in ("max", "min"):
+            if limit in metric and not isinstance(metric[limit], (int, float)):
+                errors.append(f"{where}: {limit} must be numeric")
 
     listed = data.get("sources")
     if not isinstance(listed, list) or not listed:

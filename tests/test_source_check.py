@@ -246,6 +246,39 @@ class TestHandoff(unittest.TestCase):
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["counts"]["handoffs_checked"], 1)
 
+    def test_limit_metric_without_tolerance_passes(self):
+        payload = self.handoff()
+        payload["metrics"] = [
+            {"measure": "ein_uv", "max": 1.0, "requirement": "A1"}
+        ]
+        result = self.validate(payload)
+        self.assertTrue(result["ok"], result["errors"])
+
+    def test_exploratory_metric_without_requirement_passes(self):
+        payload = self.handoff()
+        payload["metrics"] = [
+            {"measure": "thd_percent", "max": 0.01, "exploratory": True}
+        ]
+        result = self.validate(payload)
+        self.assertTrue(result["ok"], result["errors"])
+
+    def test_metric_without_target_or_limit_fails(self):
+        payload = self.handoff()
+        payload["metrics"] = [{"measure": "gain_db", "requirement": "A1"}]
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("target+tolerance" in e for e in result["errors"]))
+
+    def test_metric_without_requirement_fails(self):
+        payload = self.handoff()
+        payload["metrics"] = [
+            {"measure": "gain_db", "target": 40.0, "tolerance": 0.5}
+        ]
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("requirement or exploratory" in e
+                            for e in result["errors"]))
+
     def test_unknown_requirement_source_fails(self):
         payload = self.handoff()
         payload["requirements"][0]["source"] = "S099"

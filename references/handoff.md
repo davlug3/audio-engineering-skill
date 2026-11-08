@@ -63,7 +63,10 @@ A single JSON file, conventionally `handoff.json`:
 - Every requirement has `id`, `text`, `acceptance` and `source`.
 - `source` must resolve to a registry entry in `catalog/sources.json` with
   status `verified`.
-- Every metric either names a `requirement` or is marked `exploratory`.
+- Every metric either names a `requirement` or is marked
+  `"exploratory": true`.
+- A metric is either a target (`target` plus `tolerance`) or a limit (`max` or
+  `min`).
 - Numeric targets carry units in the field name or an explicit unit field.
 - Conditions are mandatory: a target without conditions is rejected.
 - Use SI units and RMS voltages unless stated otherwise.
