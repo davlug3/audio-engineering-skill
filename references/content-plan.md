@@ -10,13 +10,13 @@ honest gap.
 |---|---|---|
 | Governance | `scope.md`, `research-protocol.md`, `source-policy.md`, `handoff.md` | written |
 | Governance | registry, evidence schema, linter, CI | written |
-| Analog | `analog-design.md` | not started |
-| Analog | `small-signal-audio.md` | not started |
-| Analog | `power-amplifiers.md` | not started |
-| Power | `power-supplies.md` | not started |
-| Power | `grounding-shielding.md` | not started |
+| Analog | `analog-design.md` | written, practitioner guidance; gaps recorded |
+| Analog | `small-signal-audio.md` | not started; noise, op-amp selection and mic preamp are covered in `analog-design.md` §2, §3 and §6, but the dedicated treatment is still pending |
+| Analog | `power-amplifiers.md` | not started; distortion mechanisms and output stages are covered in `analog-design.md` §4 and §5, but thermal/SOA/protection are still gaps |
+| Power | `power-supplies.md` | written, practitioner guidance; mains safety details and SMPS are gaps |
+| Power | `grounding-shielding.md` | written; includes the ESP/Whitlock leakage reconciliation |
 | Topology | `audio-topologies.md` | not started |
-| Measurement | `measurement.md` | not started |
+| Measurement | `measurement.md` | written; IEC 60268-3/AES17 not yet verified in full text |
 | Acoustics | `acoustics.md` | not started |
 | Perception | `psychoacoustics.md` | not started |
 | Production | `production.md` | not started |

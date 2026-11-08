@@ -32,13 +32,13 @@ A single JSON file, conventionally `handoff.json`:
       "id": "A1",
       "text": "Flat gain within the audio band",
       "acceptance": "40 +/-0.5 dB, 20 Hz to 20 kHz, 10 kOhm load",
-      "source": "S012"
+      "source": "S041"
     },
     {
       "id": "A2",
       "text": "Input-referred noise",
       "acceptance": "<= 1.0 uV RMS, 20 Hz to 20 kHz, 150 Ohm source",
-      "source": "S013"
+      "source": "S045"
     }
   ],
   "metrics": [
@@ -50,7 +50,8 @@ A single JSON file, conventionally `handoff.json`:
     {"id": "R1", "risk": "RF rectification at the input", "mitigation": "input RC and common-mode choke", "verification": "bench RF injection"}
   ],
   "sources": [
-    {"id": "S012", "title": "...", "url": "https://...", "accessed": "2026-11-08"}
+    {"id": "S041", "title": "RaneNote 145: Audio Specifications", "url": "https://www.ranecommercial.com/legacy/note145.html", "accessed": "2026-11-08"},
+    {"id": "S045", "title": "Noise in Audio Amplifiers", "url": "https://sound-au.com/noise.htm", "accessed": "2026-11-08"}
   ]
 }
 ```
@@ -87,7 +88,7 @@ The circuit skill must reject a metric whose `requirement` id is absent.
 
 Before handoff:
 
-1. `python3 scripts/source_check.py` passes.
+1. `python3 scripts/source_check.py --strict` passes.
 2. Every `source` id exists and is `verified`.
 3. Every metric has a condition and an acceptance limit.
 4. Every requirement has a test method in the measurement plan.

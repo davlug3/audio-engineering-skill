@@ -8,6 +8,9 @@ provenance, method and traceability — not because it is popular.
 ### Tier 1 — Standards and peer review
 
 - Standards bodies: ITU, IEC, ISO, AES Standards.
+- Safety and certification bodies: UL, CSA, VDE and equivalent official
+  guidance. A summary published by the body is not the standard text; use it
+  for orientation and verify the clause in the standard that applies.
 - Peer-reviewed journals: Journal of the Audio Engineering Society (JAES),
   Journal of the Acoustical Society of America (JASA) and JASA Express Letters,
   IEEE journals, Applied Acoustics, Journal of Sound and Vibration.
@@ -34,7 +37,15 @@ the page or chapter.
 - Audio measurement instrument application notes.
 
 Tier 3 is valid for implementation detail and part behaviour. A design rule or
-limit taken from Tier 3 must be corroborated by Tier 1 or Tier 2.
+limit taken from Tier 3 requires a second independent source. Prefer Tier 1 or
+Tier 2; where only Tier 3 evidence exists, label the rule as **practitioner
+guidance** and record the gap in `references/source-gaps.md`. Safety,
+regulatory and perceptual claims do not get this exception: they require the
+governing standard or peer-reviewed evidence.
+
+This reconciles the source policy with the two-independent-source threshold in
+`references/research-protocol.md`. It does not lower the bar for safety or for
+claims about what listeners hear.
 
 ### Not citable
 

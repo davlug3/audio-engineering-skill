@@ -20,8 +20,10 @@ why, and how its performance will be judged.
 1. **Research before you answer.** Never supply an audio-circuitry value,
    topology, part number, pinout, limit, formula, standard or failure mode from
    model memory. Recall may generate hypotheses and search queries; it is not
-   evidence. Open the source during this session. See
-   `references/research-protocol.md`.
+   evidence. Open the source during this session. If browsing is unavailable,
+   stop and produce a research plan: the question list, the exact sources and
+   queries to try, what is already verified and what remains unverified. See
+   `references/research-protocol.md` §8.
 2. **No number without a source.** Every numeric claim carries a citation that
    resolves in `catalog/sources.json`. If no verified source exists, write
    "unverified" and record the gap in `references/source-gaps.md`.
@@ -99,14 +101,17 @@ Choose the block diagram and write the stage-by-stage budgets:
 - distortion budget;
 - power, thermal and supply rejection.
 
-Use `templates/stage-budget.md` and `templates/psu-budget.md`.
+Use `templates/stage-budget.md` and `templates/psu-budget.md`. Use
+`references/analog-design.md` for the noise, op-amp, distortion and output-stage
+method, and `references/power-supplies.md` for the supply budget and regulator
+choices.
 
 ### 3. Topology and parts
 
 Choose the topology and candidate parts from sourced practice, not memory. A
 part choice needs a datasheet, an operating point, alternatives and residual
-risk. Record it in `templates/decision-record.md` (copy the format from the
-sibling circuit skill if it is installed).
+risk. Record it in `templates/decision-record.md`, including the claim IDs, the
+conditions and any perceptual hypothesis.
 
 ### 4. Handoff
 
@@ -124,7 +129,8 @@ be recorded. Use `templates/measurement-plan.md` and
 ### 6. Review
 
 Check every claim for a source, every target for conditions, and every gap for
-an explicit statement. Run `scripts/source_check.py` before publishing.
+an explicit statement. Run `scripts/source_check.py --strict` before
+publishing.
 
 ## Research and sources
 
@@ -139,6 +145,26 @@ an explicit statement. Run `scripts/source_check.py` before publishing.
 A source is not "reliable" because it is popular or recent. It is reliable
 because of its provenance, method and traceability.
 
+## Knowledge documents
+
+These are written from the claims in `evidence/` and each carries a
+`## Sources` section:
+
+- `references/analog-design.md` — noise, op-amp selection, distortion
+  mechanisms, output stages and a microphone-preamplifier case study.
+- `references/power-supplies.md` — transformer, rectifier and reservoir
+  sizing, LM317/LDO regulators, capacitance multipliers, PSRR, fusing, inrush
+  and supply layout.
+- `references/grounding-shielding.md` — safety earth, ground loops, balanced
+  interfaces, the pin 1 problem, star versus mesh, and the loop breaker.
+- `references/measurement.md` — THD, THD+N, IMD, S/N, EIN, CMRR, crosstalk,
+  maximum levels and BS.1770 loudness.
+
+Planned but not yet written: `small-signal-audio.md`,
+`power-amplifiers.md`, `audio-topologies.md`, `acoustics.md`,
+`psychoacoustics.md`, `production.md`. Their open questions and the coverage
+that already exists are tracked in `references/content-plan.md`.
+
 ## Handoff to circuit-design-skill
 
 `references/handoff.md` defines contract version 1. The short form:
@@ -149,12 +175,12 @@ because of its provenance, method and traceability.
   "application": "microphone preamplifier",
   "conditions": {"input_vrms": 0.002, "frequency_hz": 1000, "load_ohm": 10000},
   "requirements": [
-    {"id": "A1", "text": "Flat gain, 40 dB", "acceptance": "40 +/-0.5 dB, 20 Hz-20 kHz", "source": "S000"}
+    {"id": "A1", "text": "Flat gain, 40 dB", "acceptance": "40 +/-0.5 dB, 20 Hz-20 kHz", "source": "S041"}
   ],
   "metrics": [
     {"measure": "gain_db", "target": 40.0, "tolerance": 0.5, "requirement": "A1"}
   ],
-  "sources": [{"id": "S000", "title": "..."}]
+  "sources": [{"id": "S041", "title": "RaneNote 145: Audio Specifications"}]
 }
 ```
 
@@ -166,12 +192,12 @@ This skill owns the audio targets and their justification.
 ```
 SKILL.md                  this file
 README.md                 overview and quick start
-references/               scope, research, sources, handoff, curricula
+references/               scope, research, sources, handoff, knowledge documents
 catalog/sources.json      verified and candidate sources
 evidence/                 claim records (JSONL)
-templates/                requirements, budgets, measurement, handoff
+templates/                requirements, budgets, decision record, measurement, handoff
 scripts/source_check.py   registry/evidence/citation linter
-scripts/audio_calc.py     sourced calculators (added as evidence lands)
+scripts/check_links.py    link and URL checker
 tests/                    unit tests
 ```
 

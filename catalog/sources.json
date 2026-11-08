@@ -7,7 +7,9 @@
       "id": "S001",
       "tier": 1,
       "title": "Recommendation ITU-R BS.1770-5: Algorithms to measure audio programme loudness and true-peak audio level",
-      "authors": ["International Telecommunication Union"],
+      "authors": [
+        "International Telecommunication Union"
+      ],
       "year": 2023,
       "venue": "ITU-R",
       "doi": null,
@@ -15,14 +17,21 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "open",
-      "topics": ["loudness", "true-peak", "measurement", "standards"],
+      "topics": [
+        "loudness",
+        "true-peak",
+        "measurement",
+        "standards"
+      ],
       "note": "Edition in force at access date. Check for a newer revision before citing."
     },
     {
       "id": "S002",
       "tier": 1,
       "title": "AES E-Library",
-      "authors": ["Audio Engineering Society"],
+      "authors": [
+        "Audio Engineering Society"
+      ],
       "year": 2026,
       "venue": "Audio Engineering Society",
       "doi": null,
@@ -30,14 +39,20 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "open",
-      "topics": ["audio-engineering", "literature", "peer-review"],
-      "note": "Index and metadata are open; most full papers require membership or purchase. Cite individual papers, not the index."
+      "topics": [
+        "audio-engineering",
+        "literature",
+        "peer-review"
+      ],
+      "note": "Index and metadata are open; most full papers require membership or purchase. Cite individual papers, not the index. Automated probes may receive HTTP 403; open in a browser."
     },
     {
       "id": "S003",
       "tier": 1,
       "title": "Journal of the Audio Engineering Society (JAES)",
-      "authors": ["Audio Engineering Society"],
+      "authors": [
+        "Audio Engineering Society"
+      ],
       "year": 2026,
       "venue": "Audio Engineering Society",
       "doi": null,
@@ -45,14 +60,19 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "paywalled",
-      "topics": ["audio-engineering", "peer-review"],
-      "note": "Hybrid journal; some review papers are open access. Cite the specific article and its DOI."
+      "topics": [
+        "audio-engineering",
+        "peer-review"
+      ],
+      "note": "Hybrid journal; some review papers are open access. Cite the specific article and its DOI. Automated probes may receive HTTP 403; open in a browser."
     },
     {
       "id": "S004",
       "tier": 1,
       "title": "AES Standards",
-      "authors": ["Audio Engineering Society Standards Committee"],
+      "authors": [
+        "Audio Engineering Society Standards Committee"
+      ],
       "year": 2026,
       "venue": "Audio Engineering Society",
       "doi": null,
@@ -60,14 +80,21 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "paywalled",
-      "topics": ["standards", "interconnection", "measurement", "digital-audio"],
-      "note": "Standards are sold individually. Record the standard number, edition and clause used."
+      "topics": [
+        "standards",
+        "interconnection",
+        "measurement",
+        "digital-audio"
+      ],
+      "note": "Standards are sold individually. Record the standard number, edition and clause used. Automated probes may receive HTTP 403; open in a browser."
     },
     {
       "id": "S005",
       "tier": 1,
       "title": "Acoustical Society of America publications (JASA, JASA Express Letters, Acoustics Today)",
-      "authors": ["Acoustical Society of America"],
+      "authors": [
+        "Acoustical Society of America"
+      ],
       "year": 2026,
       "venue": "Acoustical Society of America",
       "doi": null,
@@ -75,14 +102,20 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "paywalled",
-      "topics": ["acoustics", "psychoacoustics", "peer-review"],
+      "topics": [
+        "acoustics",
+        "psychoacoustics",
+        "peer-review"
+      ],
       "note": "JASA is subscription; JASA Express Letters is gold open access. Cite the individual article."
     },
     {
       "id": "S006",
       "tier": 3,
       "title": "Rane Library and RaneNotes",
-      "authors": ["Rane Corporation"],
+      "authors": [
+        "Rane Corporation"
+      ],
       "year": 2026,
       "venue": "Rane Corporation",
       "doi": null,
@@ -90,14 +123,22 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "open",
-      "topics": ["grounding", "interconnection", "levels", "measurement", "signal-processing"],
+      "topics": [
+        "grounding",
+        "interconnection",
+        "levels",
+        "measurement",
+        "signal-processing"
+      ],
       "note": "Named-author technical notes with revision dates. Cite the specific note, e.g. RaneNote 110, and its revision date."
     },
     {
       "id": "S007",
       "tier": 3,
       "title": "THAT Corporation Design Notes",
-      "authors": ["THAT Corporation"],
+      "authors": [
+        "THAT Corporation"
+      ],
       "year": 2026,
       "venue": "THAT Corporation",
       "doi": null,
@@ -105,14 +146,20 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "open",
-      "topics": ["microphone-preamps", "analog-audio", "input-output-circuits"],
+      "topics": [
+        "microphone-preamps",
+        "analog-audio",
+        "input-output-circuits"
+      ],
       "note": "Application detail from a semiconductor vendor. Corroborate design rules with independent sources."
     },
     {
       "id": "S008",
       "tier": 3,
       "title": "Elliott Sound Products: Articles and Projects",
-      "authors": ["Rod Elliott"],
+      "authors": [
+        "Rod Elliott"
+      ],
       "year": 2025,
       "venue": "sound-au.com",
       "doi": null,
@@ -120,14 +167,22 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "open",
-      "topics": ["amplifiers", "power-supplies", "loudspeakers", "measurement", "audio-electronics"],
+      "topics": [
+        "amplifiers",
+        "power-supplies",
+        "loudspeakers",
+        "measurement",
+        "audio-electronics"
+      ],
       "note": "Site last updated November 2025 at access date. Named author, dated articles; practitioner tier."
     },
     {
       "id": "S009",
       "tier": 3,
       "title": "The Douglas Self Site: audio amplifier and small-signal design",
-      "authors": ["Douglas Self"],
+      "authors": [
+        "Douglas Self"
+      ],
       "year": 2026,
       "venue": "douglas-self.com",
       "doi": null,
@@ -135,14 +190,21 @@
       "accessed": "2026-11-08",
       "status": "verified",
       "access": "open",
-      "topics": ["power-amplifiers", "distortion", "small-signal-audio", "crossovers"],
+      "topics": [
+        "power-amplifiers",
+        "distortion",
+        "small-signal-audio",
+        "crossovers"
+      ],
       "note": "Author of the Audio Power Amplifier Design and Small Signal Audio Design books. Site articles are technical and dated."
     },
     {
       "id": "S010",
       "tier": 1,
       "title": "EBU Recommendation R 128: Loudness normalisation and permitted maximum level of audio signals",
-      "authors": ["European Broadcasting Union"],
+      "authors": [
+        "European Broadcasting Union"
+      ],
       "year": 2023,
       "venue": "EBU",
       "doi": null,
@@ -150,14 +212,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["loudness", "standards", "broadcast"],
+      "topics": [
+        "loudness",
+        "standards",
+        "broadcast"
+      ],
       "note": "Candidate. Open and verify the current edition before citing."
     },
     {
       "id": "S011",
       "tier": 1,
       "title": "EBU Tech 3343: Practical guidelines for production and implementation in accordance with EBU R 128",
-      "authors": ["European Broadcasting Union"],
+      "authors": [
+        "European Broadcasting Union"
+      ],
       "year": 2023,
       "venue": "EBU",
       "doi": null,
@@ -165,14 +233,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["loudness", "production", "standards"],
+      "topics": [
+        "loudness",
+        "production",
+        "standards"
+      ],
       "note": "Candidate. Verify edition before citing."
     },
     {
       "id": "S012",
       "tier": 1,
       "title": "ISO 226: Acoustics - Normal equal-loudness-level contours",
-      "authors": ["International Organization for Standardization"],
+      "authors": [
+        "International Organization for Standardization"
+      ],
       "year": 2023,
       "venue": "ISO",
       "doi": null,
@@ -180,14 +254,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "paywalled",
-      "topics": ["psychoacoustics", "equal-loudness", "standards"],
+      "topics": [
+        "psychoacoustics",
+        "equal-loudness",
+        "standards"
+      ],
       "note": "Candidate. Resolve the exact catalogue record and edition before citing."
     },
     {
       "id": "S013",
       "tier": 1,
       "title": "IEC 60268: Sound system equipment",
-      "authors": ["International Electrotechnical Commission"],
+      "authors": [
+        "International Electrotechnical Commission"
+      ],
       "year": 2023,
       "venue": "IEC",
       "doi": null,
@@ -195,14 +275,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "paywalled",
-      "topics": ["measurement", "sound-systems", "standards"],
+      "topics": [
+        "measurement",
+        "sound-systems",
+        "standards"
+      ],
       "note": "Candidate. Multi-part standard; record the part and clause used."
     },
     {
       "id": "S014",
       "tier": 1,
       "title": "JASA Express Letters",
-      "authors": ["Acoustical Society of America"],
+      "authors": [
+        "Acoustical Society of America"
+      ],
       "year": 2026,
       "venue": "Acoustical Society of America",
       "doi": null,
@@ -210,14 +296,19 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["acoustics", "peer-review"],
+      "topics": [
+        "acoustics",
+        "peer-review"
+      ],
       "note": "Candidate. Gold open access."
     },
     {
       "id": "S015",
       "tier": 1,
       "title": "IEEE Xplore Digital Library",
-      "authors": ["IEEE"],
+      "authors": [
+        "IEEE"
+      ],
       "year": 2026,
       "venue": "IEEE",
       "doi": null,
@@ -225,14 +316,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "paywalled",
-      "topics": ["signal-processing", "circuits", "peer-review"],
+      "topics": [
+        "signal-processing",
+        "circuits",
+        "peer-review"
+      ],
       "note": "Candidate. Cite the individual paper and DOI."
     },
     {
       "id": "S016",
       "tier": 1,
       "title": "Applied Acoustics",
-      "authors": ["Elsevier"],
+      "authors": [
+        "Elsevier"
+      ],
       "year": 2026,
       "venue": "Elsevier",
       "doi": null,
@@ -240,14 +337,19 @@
       "accessed": null,
       "status": "candidate",
       "access": "paywalled",
-      "topics": ["acoustics", "peer-review"],
+      "topics": [
+        "acoustics",
+        "peer-review"
+      ],
       "note": "Candidate."
     },
     {
       "id": "S017",
       "tier": 1,
       "title": "Journal of Sound and Vibration",
-      "authors": ["Elsevier"],
+      "authors": [
+        "Elsevier"
+      ],
       "year": 2026,
       "venue": "Elsevier",
       "doi": null,
@@ -255,14 +357,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "paywalled",
-      "topics": ["acoustics", "vibration", "peer-review"],
+      "topics": [
+        "acoustics",
+        "vibration",
+        "peer-review"
+      ],
       "note": "Candidate."
     },
     {
       "id": "S018",
       "tier": 3,
       "title": "Audio Precision measurement application notes",
-      "authors": ["Audio Precision"],
+      "authors": [
+        "Audio Precision"
+      ],
       "year": 2026,
       "venue": "Audio Precision",
       "doi": null,
@@ -270,14 +378,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["measurement", "thd", "noise"],
+      "topics": [
+        "measurement",
+        "thd",
+        "noise"
+      ],
       "note": "Candidate. Locate the specific note and revision."
     },
     {
       "id": "S019",
       "tier": 3,
       "title": "Jensen Transformers application notes",
-      "authors": ["Jensen Transformers"],
+      "authors": [
+        "Jensen Transformers"
+      ],
       "year": 2026,
       "venue": "Jensen Transformers",
       "doi": null,
@@ -285,14 +399,21 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["transformers", "grounding", "interconnection", "analog-audio"],
+      "topics": [
+        "transformers",
+        "grounding",
+        "interconnection",
+        "analog-audio"
+      ],
       "note": "Candidate. Locate the specific application note and revision."
     },
     {
       "id": "S020",
       "tier": 3,
       "title": "Klippel knowledge base: loudspeaker measurement and modelling",
-      "authors": ["Klippel GmbH"],
+      "authors": [
+        "Klippel GmbH"
+      ],
       "year": 2026,
       "venue": "Klippel",
       "doi": null,
@@ -300,14 +421,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["loudspeakers", "measurement", "transducers"],
+      "topics": [
+        "loudspeakers",
+        "measurement",
+        "transducers"
+      ],
       "note": "Candidate."
     },
     {
       "id": "S021",
       "tier": 3,
       "title": "The Valve Wizard: valve amplifier design articles",
-      "authors": ["Merlin Blencowe"],
+      "authors": [
+        "Merlin Blencowe"
+      ],
       "year": 2026,
       "venue": "valvewizard.co.uk",
       "doi": null,
@@ -315,14 +442,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["valve-amplifiers", "guitar-amplifiers", "power-supplies"],
+      "topics": [
+        "valve-amplifiers",
+        "guitar-amplifiers",
+        "power-supplies"
+      ],
       "note": "Candidate. Named author; practitioner tier. Corroborate safety claims with standards."
     },
     {
       "id": "S022",
       "tier": 3,
       "title": "Geofex: guitar effects and audio electronics articles",
-      "authors": ["R. G. Keen"],
+      "authors": [
+        "R. G. Keen"
+      ],
       "year": 2026,
       "venue": "geofex.com",
       "doi": null,
@@ -330,14 +463,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["guitar-effects", "pedals", "analog-audio"],
+      "topics": [
+        "guitar-effects",
+        "pedals",
+        "analog-audio"
+      ],
       "note": "Candidate. Named author; practitioner tier."
     },
     {
       "id": "S023",
       "tier": 3,
       "title": "Analog Devices technical articles and application notes",
-      "authors": ["Analog Devices"],
+      "authors": [
+        "Analog Devices"
+      ],
       "year": 2026,
       "venue": "Analog Devices",
       "doi": null,
@@ -345,14 +484,21 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["analog-audio", "op-amps", "power-supplies", "data-converters"],
+      "topics": [
+        "analog-audio",
+        "op-amps",
+        "power-supplies",
+        "data-converters"
+      ],
       "note": "Candidate. Cite the exact application note or datasheet revision."
     },
     {
       "id": "S024",
       "tier": 3,
       "title": "Texas Instruments application notes and datasheets",
-      "authors": ["Texas Instruments"],
+      "authors": [
+        "Texas Instruments"
+      ],
       "year": 2026,
       "venue": "Texas Instruments",
       "doi": null,
@@ -360,14 +506,21 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["analog-audio", "op-amps", "power-supplies", "data-converters"],
+      "topics": [
+        "analog-audio",
+        "op-amps",
+        "power-supplies",
+        "data-converters"
+      ],
       "note": "Candidate. Cite the exact document and revision."
     },
     {
       "id": "S025",
       "tier": 1,
       "title": "arXiv eess.AS: Audio and Speech Processing",
-      "authors": ["arXiv"],
+      "authors": [
+        "arXiv"
+      ],
       "year": 2026,
       "venue": "arXiv",
       "doi": null,
@@ -375,14 +528,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["signal-processing", "audio", "preprints"],
+      "topics": [
+        "signal-processing",
+        "audio",
+        "preprints"
+      ],
       "note": "Candidate. Preprints are not peer reviewed; prefer the published version."
     },
     {
       "id": "S026",
       "tier": 3,
       "title": "Crossref metadata search",
-      "authors": ["Crossref"],
+      "authors": [
+        "Crossref"
+      ],
       "year": 2026,
       "venue": "Crossref",
       "doi": null,
@@ -390,14 +549,19 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["discovery", "metadata"],
+      "topics": [
+        "discovery",
+        "metadata"
+      ],
       "note": "Candidate. Discovery tool only; cite the paper it resolves to."
     },
     {
       "id": "S027",
       "tier": 3,
       "title": "OpenAlex scholarly index",
-      "authors": ["OurResearch"],
+      "authors": [
+        "OurResearch"
+      ],
       "year": 2026,
       "venue": "OpenAlex",
       "doi": null,
@@ -405,14 +569,19 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["discovery", "metadata"],
+      "topics": [
+        "discovery",
+        "metadata"
+      ],
       "note": "Candidate. Discovery tool only."
     },
     {
       "id": "S028",
       "tier": 3,
       "title": "Directory of Open Access Journals (DOAJ)",
-      "authors": ["DOAJ"],
+      "authors": [
+        "DOAJ"
+      ],
       "year": 2026,
       "venue": "DOAJ",
       "doi": null,
@@ -420,14 +589,19 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["discovery", "open-access"],
+      "topics": [
+        "discovery",
+        "open-access"
+      ],
       "note": "Candidate. Discovery tool only."
     },
     {
       "id": "S029",
       "tier": 3,
       "title": "Semantic Scholar",
-      "authors": ["Allen Institute for AI"],
+      "authors": [
+        "Allen Institute for AI"
+      ],
       "year": 2026,
       "venue": "Semantic Scholar",
       "doi": null,
@@ -435,14 +609,19 @@
       "accessed": null,
       "status": "candidate",
       "access": "open",
-      "topics": ["discovery", "metadata"],
+      "topics": [
+        "discovery",
+        "metadata"
+      ],
       "note": "Candidate. Discovery tool only."
     },
     {
       "id": "S030",
       "tier": 2,
       "title": "Small Signal Audio Design",
-      "authors": ["Douglas Self"],
+      "authors": [
+        "Douglas Self"
+      ],
       "year": 2024,
       "venue": "Routledge",
       "doi": null,
@@ -450,14 +629,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["small-signal-audio", "preamplifiers", "filters"],
+      "topics": [
+        "small-signal-audio",
+        "preamplifiers",
+        "filters"
+      ],
       "note": "Candidate. Verify edition, year and ISBN before citing a page."
     },
     {
       "id": "S031",
       "tier": 2,
       "title": "Audio Power Amplifier Design",
-      "authors": ["Douglas Self"],
+      "authors": [
+        "Douglas Self"
+      ],
       "year": 2013,
       "venue": "Focal Press",
       "doi": null,
@@ -465,14 +650,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["power-amplifiers", "distortion", "thermal"],
+      "topics": [
+        "power-amplifiers",
+        "distortion",
+        "thermal"
+      ],
       "note": "Sixth edition. Verify ISBN and page before citing."
     },
     {
       "id": "S032",
       "tier": 2,
       "title": "Designing Audio Power Amplifiers",
-      "authors": ["Bob Cordell"],
+      "authors": [
+        "Bob Cordell"
+      ],
       "year": 2019,
       "venue": "Routledge",
       "doi": null,
@@ -480,14 +671,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["power-amplifiers", "distortion", "thermal"],
+      "topics": [
+        "power-amplifiers",
+        "distortion",
+        "thermal"
+      ],
       "note": "Candidate. Verify edition and ISBN."
     },
     {
       "id": "S033",
       "tier": 2,
       "title": "Valve Amplifiers",
-      "authors": ["Morgan Jones"],
+      "authors": [
+        "Morgan Jones"
+      ],
       "year": 2012,
       "venue": "Newnes",
       "doi": null,
@@ -495,14 +692,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["valve-amplifiers", "power-supplies", "noise"],
+      "topics": [
+        "valve-amplifiers",
+        "power-supplies",
+        "noise"
+      ],
       "note": "Fourth edition. Verify ISBN and page before citing."
     },
     {
       "id": "S034",
       "tier": 2,
       "title": "Designing Valve Preamps for Guitar and Bass",
-      "authors": ["Merlin Blencowe"],
+      "authors": [
+        "Merlin Blencowe"
+      ],
       "year": 2012,
       "venue": "Wizard Books",
       "doi": null,
@@ -510,14 +713,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["valve-amplifiers", "guitar-amplifiers", "preamplifiers"],
+      "topics": [
+        "valve-amplifiers",
+        "guitar-amplifiers",
+        "preamplifiers"
+      ],
       "note": "Candidate. Verify edition and ISBN."
     },
     {
       "id": "S035",
       "tier": 2,
       "title": "Sound Reproduction: The Acoustics and Psychoacoustics of Loudspeakers and Rooms",
-      "authors": ["Floyd E. Toole"],
+      "authors": [
+        "Floyd E. Toole"
+      ],
       "year": 2017,
       "venue": "Routledge",
       "doi": null,
@@ -525,14 +734,22 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["acoustics", "psychoacoustics", "loudspeakers", "rooms"],
+      "topics": [
+        "acoustics",
+        "psychoacoustics",
+        "loudspeakers",
+        "rooms"
+      ],
       "note": "Third edition. Verify ISBN and page before citing."
     },
     {
       "id": "S036",
       "tier": 2,
       "title": "Master Handbook of Acoustics",
-      "authors": ["F. Alton Everest", "Ken C. Pohlmann"],
+      "authors": [
+        "F. Alton Everest",
+        "Ken C. Pohlmann"
+      ],
       "year": 2021,
       "venue": "McGraw Hill",
       "doi": null,
@@ -540,14 +757,21 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["acoustics", "rooms", "absorption"],
+      "topics": [
+        "acoustics",
+        "rooms",
+        "absorption"
+      ],
       "note": "Candidate. Verify edition and ISBN."
     },
     {
       "id": "S037",
       "tier": 2,
       "title": "Psychoacoustics: Facts and Models",
-      "authors": ["Eberhard Zwicker", "Hugo Fastl"],
+      "authors": [
+        "Eberhard Zwicker",
+        "Hugo Fastl"
+      ],
       "year": 2007,
       "venue": "Springer",
       "doi": null,
@@ -555,14 +779,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["psychoacoustics", "masking", "loudness"],
+      "topics": [
+        "psychoacoustics",
+        "masking",
+        "loudness"
+      ],
       "note": "Third edition. Verify ISBN and page before citing."
     },
     {
       "id": "S038",
       "tier": 2,
       "title": "Handbook for Sound Engineers",
-      "authors": ["Glen M. Ballou"],
+      "authors": [
+        "Glen M. Ballou"
+      ],
       "year": 2015,
       "venue": "Focal Press",
       "doi": null,
@@ -570,14 +800,20 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["audio-engineering", "sound-systems", "measurement"],
+      "topics": [
+        "audio-engineering",
+        "sound-systems",
+        "measurement"
+      ],
       "note": "Fifth edition. Verify ISBN and page before citing."
     },
     {
       "id": "S039",
       "tier": 2,
       "title": "Switch-Mode Power Supplies: SPICE Simulations and Practical Designs",
-      "authors": ["Christophe P. Basso"],
+      "authors": [
+        "Christophe P. Basso"
+      ],
       "year": 2014,
       "venue": "McGraw-Hill",
       "doi": null,
@@ -585,8 +821,459 @@
       "accessed": null,
       "status": "candidate",
       "access": "book",
-      "topics": ["power-supplies", "smps", "control"],
+      "topics": [
+        "power-supplies",
+        "smps",
+        "control"
+      ],
       "note": "Second edition. Verify ISBN and page before citing."
+    },
+    {
+      "id": "S040",
+      "tier": 3,
+      "title": "RaneNote 110: Sound System Interconnection",
+      "authors": [
+        "Rane Technical Staff"
+      ],
+      "year": 2015,
+      "venue": "Rane Corporation",
+      "doi": null,
+      "url": "https://www.ranecommercial.com/legacy/note110.html",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "grounding",
+        "interconnection",
+        "balanced-audio",
+        "shielding"
+      ],
+      "note": "Written 1985; last revised 11/15. Describes the AES48 shield-to-chassis practice."
+    },
+    {
+      "id": "S041",
+      "tier": 3,
+      "title": "RaneNote 145: Audio Specifications",
+      "authors": [
+        "Dennis Bohn"
+      ],
+      "year": 2003,
+      "venue": "Rane Corporation",
+      "doi": null,
+      "url": "https://www.ranecommercial.com/legacy/note145.html",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "measurement",
+        "thd",
+        "imd",
+        "noise",
+        "cmrr"
+      ],
+      "note": "Written 2000; last revised 1/03."
+    },
+    {
+      "id": "S042",
+      "tier": 3,
+      "title": "Linear Power Supply Design",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2021,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/power-supplies.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-supplies",
+        "transformers",
+        "rectifiers",
+        "reservoir-capacitors",
+        "fusing"
+      ],
+      "note": "Copyright 2001; page last updated May 2021."
+    },
+    {
+      "id": "S043",
+      "tier": 3,
+      "title": "Capacitance Multiplier Power Supplies",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2026,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/articles/cap-multiplier.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-supplies",
+        "capacitance-multiplier",
+        "ripple",
+        "grounding"
+      ],
+      "note": "Copyright May 2022; updated June 2026 (added Section 9A)."
+    },
+    {
+      "id": "S044",
+      "tier": 3,
+      "title": "LDO Regulators: A Short Primer on These Sometimes Difficult Devices",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2017,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/articles/ldo-regulators.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-supplies",
+        "ldo",
+        "stability",
+        "esr",
+        "noise"
+      ],
+      "note": "Copyright 2017."
+    },
+    {
+      "id": "S045",
+      "tier": 3,
+      "title": "Noise in Audio Amplifiers",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2025,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/noise.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "noise",
+        "op-amps",
+        "thermal-noise",
+        "microphone-preamps"
+      ],
+      "note": "Copyright 1999; updated May 2025."
+    },
+    {
+      "id": "S046",
+      "tier": 3,
+      "title": "Distortion - What It Is And How It's Measured",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2022,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/articles/distortion.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "distortion",
+        "thd",
+        "imd",
+        "measurement",
+        "notch-filter"
+      ],
+      "note": "Copyright October 2022."
+    },
+    {
+      "id": "S047",
+      "tier": 3,
+      "title": "Opamp Selection",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2025,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/articles/opamp-selection.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "op-amps",
+        "noise",
+        "slew-rate",
+        "part-selection"
+      ],
+      "note": "Copyright September 2025."
+    },
+    {
+      "id": "S048",
+      "tier": 3,
+      "title": "Earthing (Grounding) Your Hi-Fi: Tips, Tricks and Techniques",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2014,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/earthing.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "grounding",
+        "safety-earth",
+        "ground-loops",
+        "loop-breaker"
+      ],
+      "note": "Page created 30 Dec 1999; updated Dec 2014."
+    },
+    {
+      "id": "S049",
+      "tier": 3,
+      "title": "Noise Analysis in Operational Amplifier Circuits (SLVA043B)",
+      "authors": [
+        "Texas Instruments"
+      ],
+      "year": 2007,
+      "venue": "Texas Instruments",
+      "doi": null,
+      "url": "https://www.ti.com/lit/pdf/slva043",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "noise",
+        "op-amps",
+        "thermal-noise",
+        "equivalent-noise-bandwidth"
+      ],
+      "note": "Application report SLVA043B. Some page footers retain the earlier SLVA043A designation."
+    },
+    {
+      "id": "S050",
+      "tier": 3,
+      "title": "Understanding power supply ripple rejection in linear regulators",
+      "authors": [
+        "John C. Teel"
+      ],
+      "year": 2005,
+      "venue": "Texas Instruments Analog Applications Journal, 2Q 2005",
+      "doi": null,
+      "url": "https://www.ti.com/lit/pdf/slyt202",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-supplies",
+        "psrr",
+        "ldo",
+        "ripple"
+      ],
+      "note": "Analog Applications Journal, 2Q 2005, pp. 8-10."
+    },
+    {
+      "id": "S051",
+      "tier": 3,
+      "title": "Understanding the Terms and Definitions of LDO Voltage Regulators (SLVA079)",
+      "authors": [
+        "Bang S. Lee"
+      ],
+      "year": 1999,
+      "venue": "Texas Instruments",
+      "doi": null,
+      "url": "https://www.ti.com/lit/pdf/slva079",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-supplies",
+        "ldo",
+        "dropout",
+        "quiescent-current",
+        "stability"
+      ],
+      "note": "Application report SLVA079."
+    },
+    {
+      "id": "S052",
+      "tier": 3,
+      "title": "LM317 3-Terminal Adjustable Regulator datasheet (SLVS044Z)",
+      "authors": [
+        "Texas Instruments"
+      ],
+      "year": 2025,
+      "venue": "Texas Instruments",
+      "doi": null,
+      "url": "https://www.ti.com/lit/ds/symlink/lm317.pdf",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-supplies",
+        "linear-regulators",
+        "lm317",
+        "ripple-rejection",
+        "noise"
+      ],
+      "note": "Originally September 1997; revised April 2025."
+    },
+    {
+      "id": "S053",
+      "tier": 3,
+      "title": "An Overview of Audio System Grounding & Interfacing",
+      "authors": [
+        "Bill Whitlock"
+      ],
+      "year": 2012,
+      "venue": "Jensen Transformers (presentation)",
+      "doi": null,
+      "url": "https://jhbrandt.net/assets/resource/An_Overview_of_Audio_SystemGrounding_and_Interfacing.pdf",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "grounding",
+        "balanced-audio",
+        "cmrr",
+        "pin-1-problem",
+        "safety-earth"
+      ],
+      "note": "Presentation slides dated 9/4/2012. Hosted copy; verify against the author's current version."
+    },
+    {
+      "id": "S054",
+      "tier": 3,
+      "title": "Input and Output Circuits for THAT Preamplifier ICs (Design Note 140)",
+      "authors": [
+        "THAT Corporation"
+      ],
+      "year": 2014,
+      "venue": "THAT Corporation",
+      "doi": null,
+      "url": "https://thatcorp.com/datashts/dn140.pdf",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "microphone-preamps",
+        "phantom-power",
+        "rfi",
+        "input-protection"
+      ],
+      "note": "Doc 600140 Rev 03; copyright 2011-2014."
+    },
+    {
+      "id": "S055",
+      "tier": 3,
+      "title": "Distortion In Power Amplifiers",
+      "authors": [
+        "Douglas Self"
+      ],
+      "year": 2019,
+      "venue": "The Douglas Self Site",
+      "doi": null,
+      "url": "http://www.douglas-self.com/ampins/dipa/dipa.htm",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-amplifiers",
+        "distortion",
+        "output-stages",
+        "bias"
+      ],
+      "note": "Updated 12 Sept 2019; originally published January 1997."
+    },
+    {
+      "id": "S056",
+      "tier": 1,
+      "title": "Ground Loops: The Rest of the Story",
+      "authors": [
+        "Bill Whitlock",
+        "Jamie Fox"
+      ],
+      "year": 2010,
+      "venue": "AES Convention 129, Paper 8234",
+      "doi": null,
+      "url": "https://jhbrandt.net/assets/resource/AES-Ground-Loops-Rest-of-Story-Whitlock-Fox.pdf",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "grounding",
+        "shielding",
+        "power",
+        "measurement"
+      ],
+      "note": "AES Convention 129, Paper 8234, 4-7 November 2010. Author-hosted copy; cite the AES convention paper."
+    },
+    {
+      "id": "S057",
+      "tier": 1,
+      "title": "Measurement of Complete Nonlinear Distortion in Audio Amplifiers via the Parallel Wiener-Hammerstein Model",
+      "authors": [
+        "Giuseppe Parolo"
+      ],
+      "year": 2026,
+      "venue": "Journal of the Audio Engineering Society 74(5), 304-325",
+      "doi": "10.17743/jaes.2022.0262",
+      "url": "https://doi.org/10.17743/jaes.2022.0262",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "paywalled",
+      "topics": [
+        "measurement",
+        "distortion",
+        "nonlinear"
+      ],
+      "note": "Metadata and abstract verified via Crossref; full text paywalled. Cite the paper and DOI."
+    },
+    {
+      "id": "S058",
+      "tier": 1,
+      "title": "UL Question Corner: Leakage current",
+      "authors": [
+        "Underwriters Laboratories"
+      ],
+      "year": 2019,
+      "venue": "IAEI Magazine, UL Question Corner",
+      "doi": null,
+      "url": "https://iaeimagazine.org/columns/ul-question-corner/ul-question-corner-leakage-current/",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "safety",
+        "leakage",
+        "regulatory",
+        "grounding"
+      ],
+      "note": "UL-authored column in IAEI Magazine, 18 February 2019. Not the text of the standard; use for the UL summary and verify the exact clause in UL 6500 or the applicable standard."
+    },
+    {
+      "id": "S059",
+      "tier": 1,
+      "title": "Understanding Ground Fault and Leakage Current Protection",
+      "authors": [
+        "Underwriters Laboratories"
+      ],
+      "year": 2009,
+      "venue": "The Code Authority: Electrical Connections newsletter",
+      "doi": null,
+      "url": "https://code-authorities.ul.com/wp-content/uploads/2014/04/ul_GroundFaultProtectiveDevices.pdf",
+      "accessed": "2026-11-08",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "safety",
+        "grounding",
+        "regulatory",
+        "GFCI"
+      ],
+      "note": "UL article from the January 2009 issue. It summarizes NEC Article 100 and UL 943; it is not the standard text."
     }
   ]
 }

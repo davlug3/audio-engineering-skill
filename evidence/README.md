@@ -3,8 +3,10 @@
 One JSON object per line (JSONL), grouped by topic:
 
 ```
-evidence/small-signal-audio.jsonl
+evidence/analog-design.jsonl
 evidence/power-supplies.jsonl
+evidence/grounding-shielding.jsonl
+evidence/measurement.jsonl
 ```
 
 Each record links a claim to a verified source and a locator.

@@ -78,7 +78,12 @@ Prose cites `[C001]`. A claim without a source id is a hypothesis.
 | Safety or regulatory | the governing standard, quoted by clause |
 | Conflicting sources | three sources, and the conflict stated explicitly |
 
-Do not average conflicting values into a made-up consensus.
+Where the only available evidence is Tier 3, two independent Tier 3 sources are
+acceptable for an implementation rule, provided the prose labels it
+**practitioner guidance** and the gap is recorded in
+`references/source-gaps.md`. This exception does not apply to safety,
+regulatory or perceptual claims. Do not average conflicting values into a
+made-up consensus.
 
 ## 7. Recency and revision
 
