@@ -453,10 +453,12 @@ Ask for:
 - PSRR and supply-ripple transfer;
 - a verification report that states the simulator, models and conditions.
 
-The circuit skill's `metrics` stage is not implemented yet; until it is, export
-the raw simulation data and compute the metrics with the definitions in
-`measurement.md`. Do not accept a single THD number without the conditions
-[C166].
+The circuit skill now implements a generic `metrics` stage for gain and
+bandwidth from AC, THD from `.four`, input- and output-referred noise from
+`.noise`, and transient RMS. It still does not compute IMD, PSRR versus
+frequency, or a full FFT; for those, export the raw simulation data and use the
+definitions in `measurement.md`. Do not accept a single THD number without the
+conditions [C166].
 
 ## Sources
 

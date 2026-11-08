@@ -43,7 +43,7 @@ A single JSON file, conventionally `handoff.json`:
   ],
   "metrics": [
     {"measure": "gain_db", "target": 40.0, "tolerance": 0.5, "requirement": "A1"},
-    {"measure": "noise_uv_rms", "max": 1.0, "bandwidth_hz": [20, 20000], "requirement": "A2"},
+    {"measure": "ein_uv", "max": 1.0, "bandwidth_hz": [20, 20000], "requirement": "A2"},
     {"measure": "bandwidth_hz", "min": 20000, "passband": "low", "requirement": "A1"}
   ],
   "risks": [
@@ -71,6 +71,12 @@ A single JSON file, conventionally `handoff.json`:
 - Conditions are mandatory: a target without conditions is rejected.
 - Use SI units and RMS voltages unless stated otherwise.
 - No part numbers in the handoff unless a datasheet source is recorded.
+- Use a measure the circuit skill can evaluate after merge: `gain_db`,
+  `bandwidth_hz`, `bandwidth_low_hz`, `bandwidth_width_hz`, `thd_percent`,
+  `ein_uv`, `noise_uv` or `output_vrms`. `bandwidth_hz` means the upper -3 dB
+  corner; use `bandwidth_low_hz` for the lower corner and
+  `bandwidth_width_hz` for the width. If a needed measure is not supported,
+  mark it exploratory rather than pretending it was simulated.
 
 ## 3. Merge into a circuit spec
 
@@ -86,6 +92,54 @@ The circuit skill maps:
 | `sources[]` | `design.sources[]` |
 
 The circuit skill must reject a metric whose `requirement` id is absent.
+
+### Electrical fields added by the circuit skill
+
+The handoff says **what** to measure; the circuit spec needs the electrical
+test point. The circuit skill adds:
+
+- `analysis` and the matching entry in `analyses[]` (`ac`, `tran`, `noise` or
+  `fourier`);
+- `output` and, for gain and bandwidth, `input` as rawfile variables such as
+  `v(out)` and `v(in)`;
+- `frequency` for `gain_db`, `fundamental` for `thd_percent`, and
+  `start`/`stop` for `output_vrms` when the default window is not right;
+- a stable `id`;
+- the handoff `conditions` under `metrics.conditions`.
+
+Example merged block:
+
+```json
+{
+  "analyses": [
+    {"type": "ac", "start": 10, "stop": 100000, "points": 200},
+    {"type": "noise", "output": "OUT", "source": "V1",
+     "start": 20, "stop": 20000, "points": 100}
+  ],
+  "metrics": {
+    "conditions": {"input_vrms": 0.002, "frequency_hz": 1000,
+                   "load_ohm": 10000, "source_impedance_ohm": 150},
+    "metrics": [
+      {"id": "M1", "measure": "gain_db", "requirement": "A1",
+       "analysis": "ac", "output": "v(out)", "input": "v(in)",
+       "frequency": 1000, "target": 40.0, "tolerance": 0.5},
+      {"id": "M2", "measure": "ein_uv", "requirement": "A2",
+       "analysis": "noise", "output": "v(out)", "max": 1.0}
+    ]
+  }
+}
+```
+
+The merged spec is validated before simulation. A missing analysis, missing
+`output`/`input`, absent target or limit, or unknown requirement id is an
+error. The circuit skill's `references/metrics.md` documents the definitions
+and limits.
+
+The circuit skill implements the merge in `scripts/audio_handoff.py`. It
+requires the base circuit spec and a small test-point map, because the audio
+handoff does not know the circuit's node names or which analysis produces each
+metric. Its CI checks out both repositories and runs the merge on the example
+handoff.
 
 ## 4. Validation
 

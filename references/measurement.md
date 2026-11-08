@@ -282,13 +282,13 @@ Send the test conditions, not just the netlist. The circuit skill should run:
 - `noise` for input-referred noise over the specified bandwidth;
 - `tran` for large-signal, slew and clipping behaviour;
 - `tf` for transfer functions where useful;
-- `.four` or an external FFT for THD, once the metrics stage exists.
+- `.four` for THD; the circuit skill's generic metrics stage reads the `.four`
+  block and its ASCII raw parser handles AC complex pairs and multi-variable
+  rows. The stage does not compute IMD, PSRR versus frequency, or a full FFT;
+  export the raw data for those.
 
-The current circuit skill does not emit `.four` and its ASCII raw parser cannot
-represent AC complex pairs or multi-variable rows correctly. Until that is
-fixed, export the raw data and compute the metrics with the definitions in this
-document. Do not accept a simulator's "THD" number without the test frequency,
-amplitude, load and harmonic count [C166].
+Do not accept a simulator's "THD" number without the test frequency, amplitude,
+load and harmonic count [C166].
 
 ## Sources
 
