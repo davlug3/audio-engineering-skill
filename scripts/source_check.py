@@ -2,8 +2,9 @@
 """Validate the source registry, evidence records and citation markers.
 
 Exit status is non-zero when the repository would publish an unsupported claim,
-an unregistered citation, a malformed record or (with ``--strict``) a knowledge
-document without a Sources section.
+an unregistered citation, a malformed record, (with ``--strict``) a knowledge
+document without a Sources section, or (with ``--handoff``) a handoff that
+violates the contract or cites an unverified source.
 
 Standard library only, so it runs anywhere the skill runs.
 """
@@ -276,7 +277,10 @@ def check_handoff(path: Path, sources: dict[str, dict[str, Any]]) -> list[str]:
         if not isinstance(sid, str) or not SOURCE_ID_RE.match(sid):
             errors.append(f"{where}: id must look like S001")
             continue
-        listed_ids.add(sid)
+        if sid in listed_ids:
+            errors.append(f"{where}: duplicate source id {sid}")
+        else:
+            listed_ids.add(sid)
         if not isinstance(source.get("title"), str) or not source["title"].strip():
             errors.append(f"{where}: title must be a non-empty string")
         accessed = source.get("accessed")

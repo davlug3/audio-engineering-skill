@@ -9,7 +9,7 @@ honest gap.
 | Area | Document | Status |
 |---|---|---|
 | Governance | `scope.md`, `research-protocol.md`, `source-policy.md`, `handoff.md` | written |
-| Governance | registry, evidence schema, linter, CI | written |
+| Governance | registry, evidence schema, linter, handoff validator, example, CI | written |
 | Analog | `analog-design.md` | written, practitioner guidance; gaps recorded |
 | Analog | `small-signal-audio.md` | not started; noise, op-amp selection and mic preamp are covered in `analog-design.md` §2, §3 and §6, but the dedicated treatment is still pending |
 | Analog | `power-amplifiers.md` | not started; distortion mechanisms and output stages are covered in `analog-design.md` §4 and §5, but thermal/SOA/protection are still gaps |

@@ -14,7 +14,8 @@ standing in for research.
 - Four knowledge documents are written: `analog-design.md`,
   `power-supplies.md`, `grounding-shielding.md` and `measurement.md`.
   They are evidence-backed practitioner guidance, not standards claims.
-- `python scripts/source_check.py --strict` passes.
+- `python scripts/source_check.py --strict --handoff examples/mic-preamp-handoff.json`
+  passes, including the handoff contract checks.
 
 ## Gaps by topic
 

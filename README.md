@@ -94,7 +94,7 @@ tests/                    unit tests
 ## Status
 
 This repository is built evidence-first. Governance, the registry, the handoff
-contract and four knowledge documents are in place:
+contract and validator, and four knowledge documents are in place:
 
 - [`references/analog-design.md`](references/analog-design.md) — noise, op-amp
   selection, distortion mechanisms, output stages and a microphone-preamplifier

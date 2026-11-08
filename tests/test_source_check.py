@@ -280,6 +280,13 @@ class TestHandoff(unittest.TestCase):
         self.assertFalse(result["ok"])
         self.assertTrue(any("handoff_version" in e for e in result["errors"]))
 
+    def test_duplicate_handoff_source_fails(self):
+        payload = self.handoff()
+        payload["sources"].append(dict(payload["sources"][0]))
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("duplicate source id" in e for e in result["errors"]))
+
 
 if __name__ == "__main__":
     unittest.main()
