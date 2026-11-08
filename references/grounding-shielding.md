@@ -18,10 +18,11 @@ Every numeric or behavioural statement carries a claim ID. Claims are in
   information-technology equipment with EMI filters [C187]. Whitlock's 3.5/5 mA
   figures come from a different summary and must be checked against the
   standard for the product class [C115].
-- A Class A GFCI trips at 4 to 6 mA [C189]. A 30 mA European RCD is a different
-  device, and a GFPE that trips at 30 mA or more is for equipment protection,
-  not personnel protection [C190]. ESP's "about 20 mA" is a practitioner
-  summary of the RCDs it describes [C132]; do not apply it to a Class A GFCI.
+- A Class A GFCI trips at 4 to 6 mA [C189]. An RCD is a different device with
+  different trip thresholds, and a GFPE that trips at 30 mA or more is for
+  equipment protection, not personnel protection [C190]. ESP's "about 20 mA"
+  is a practitioner summary of the RCDs it describes [C132]; do not apply it
+  to a Class A GFCI.
 - Safety grounding must never be defeated to solve a noise problem; doing so is
   dangerous, illegal in many jurisdictions, and creates liability [C126].
 - NEC 2008 Articles 250.6(D) and 250.114 prohibit removing safety grounding
@@ -276,13 +277,13 @@ Both statements can be true:
 
 - A **fault** from the active line to chassis is a high current; it trips the
   overcurrent device, and a ground fault above the trip threshold also trips a
-  GFCI or RCD [C189][C190].
+  GFCI or other ground-fault protective device [C189][C190].
 - **Capacitive leakage** in normal equipment is limited to the product-class
   values in §0, typically 0.5 to 0.75 mA for cord-and-plug appliances and up
   to 3.5 mA for some information-technology equipment with EMI filters [C187].
   That is below the 4 to 6 mA Class A GFCI trip [C189] and below the 30 mA
-  RCD/GFPE threshold [C190], so it can flow continuously in the shield without
-  tripping anything.
+  or higher GFPE threshold [C190], so it can flow continuously in the shield
+  without tripping anything.
 - Ground loops also have non-leakage sources: ground potential differences,
   magnetic induction and electric induction [C119].
 

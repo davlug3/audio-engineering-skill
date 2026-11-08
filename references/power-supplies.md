@@ -24,9 +24,10 @@ Three safety facts frame the rest of this document:
   some information-technology equipment with EMI filters [C187]. Check the
   standard for the product class; Whitlock's 3.5/5 mA summary is not universal
   [C115].
-- A Class A GFCI trips at 4 to 6 mA [C189]. A 30 mA RCD or a GFPE rated at
-  30 mA or more is a different device with a different purpose [C190]. ESP's
-  "about 20 mA" applies to the RCDs it describes [C132], not to a Class A GFCI.
+- A Class A GFCI trips at 4 to 6 mA [C189]. An RCD is a different device with
+  different trip thresholds, and a GFPE rated at 30 mA or more is for equipment
+  protection, not personnel protection [C190]. ESP's "about 20 mA" applies to
+  the RCDs it describes [C132], not to a Class A GFCI.
 - Disconnecting the safety earth can leave a live chassis if a fault occurs,
   and may be illegal and create liability [C133].
 
