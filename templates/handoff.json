@@ -1,0 +1,50 @@
+{
+  "_comment": "Template. Replace every placeholder and register the sources in catalog/sources.json before handing off.",
+  "handoff_version": 1,
+  "application": "APPLICATION",
+  "description": "ONE-LINE DESCRIPTION",
+  "conditions": {
+    "input_vrms": 0.0,
+    "frequency_hz": 1000,
+    "load_ohm": 10000,
+    "bandwidth_hz": [20, 20000],
+    "temperature_c": 25
+  },
+  "architecture": {
+    "summary": "BLOCK DIAGRAM IN WORDS",
+    "blocks": ["BLOCK"],
+    "supplies": [{"name": "V+", "voltage": 15}, {"name": "V-", "voltage": -15}]
+  },
+  "requirements": [
+    {
+      "id": "A1",
+      "text": "REQUIREMENT",
+      "acceptance": "LIMIT WITH CONDITIONS",
+      "source": "SXXX"
+    }
+  ],
+  "metrics": [
+    {
+      "measure": "gain_db",
+      "target": 0.0,
+      "tolerance": 0.5,
+      "requirement": "A1"
+    }
+  ],
+  "risks": [
+    {
+      "id": "R1",
+      "risk": "RISK",
+      "mitigation": "MITIGATION",
+      "verification": "TEST"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SXXX",
+      "title": "TITLE",
+      "url": "https://example.invalid",
+      "accessed": "YYYY-MM-DD"
+    }
+  ]
+}

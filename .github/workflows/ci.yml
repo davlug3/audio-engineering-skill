@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    paths:
+      - "catalog/**"
+      - "evidence/**"
+      - "references/**"
+      - "templates/**"
+      - "scripts/**"
+      - "tests/**"
+      - ".github/workflows/ci.yml"
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      check_links:
+        description: "Probe registry URLs (network required)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Tests and source lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m unittest discover -s tests -v
+      - name: Source and citation lint
+        run: python scripts/source_check.py --strict
+      - name: Validate registry JSON
+        run: python -m json.tool catalog/sources.json > /dev/null
+
+  links:
+    name: Registry link probe
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.check_links == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe verified sources
+        run: python scripts/check_links.py --json > link-report.json || true
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: link-report.json
+          if-no-files-found: warn

@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-08",
+  "policy": "Every target needs at least one verified source and stated measurement conditions. Empty until the evidence exists.",
+  "targets": []
+}
