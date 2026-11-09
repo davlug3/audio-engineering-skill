@@ -120,9 +120,10 @@ Emit a `handoff.json` (schema in `references/handoff.md`) containing
 requirements, conditions, target metrics and sources. Validate it with
 `python3 scripts/source_check.py --strict --handoff handoff.json`; the checker
 requires every requirement source to be verified and listed, and every metric
-to reference an existing requirement. `examples/mic-preamp-handoff.json` is a
-complete example. `circuit-design-skill` merges the handoff into a design
-spec, sizes components, simulates and verifies.
+to use a supported measure and reference an existing requirement.
+`examples/mic-preamp-handoff.json` is a complete example.
+`circuit-design-skill` merges the handoff into a design spec, sizes
+components, simulates and verifies.
 
 ### 5. Measurement plan
 

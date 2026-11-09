@@ -64,7 +64,8 @@ A single JSON file, conventionally `handoff.json`:
 - `source` must resolve to a registry entry in `catalog/sources.json` with
   status `verified`.
 - Every metric either names a `requirement` or is marked
-  `"exploratory": true`.
+  `"exploratory": true`. `exploratory` relaxes the requirement link; it does
+  not bypass the measure list below.
 - A metric is either a target (`target` plus `tolerance`) or a limit (`max` or
   `min`).
 - Numeric targets carry units in the field name or an explicit unit field.
@@ -75,8 +76,15 @@ A single JSON file, conventionally `handoff.json`:
   `bandwidth_hz`, `bandwidth_low_hz`, `bandwidth_width_hz`, `thd_percent`,
   `ein_uv`, `noise_uv` or `output_vrms`. `bandwidth_hz` means the upper -3 dB
   corner; use `bandwidth_low_hz` for the lower corner and
-  `bandwidth_width_hz` for the width. If a needed measure is not supported,
-  mark it exploratory rather than pretending it was simulated.
+  `bandwidth_width_hz` for the width. `source_check.py` rejects any other
+  measure, so the mismatch fails here rather than at merge time.
+- If a needed measure is not implemented (IMD, PSRR versus frequency, weighted
+  noise, FFT distortion), record it in the measurement plan and as a
+  requirement. Do not put it in `metrics[]` and do not call it simulated.
+- Audio-only context fields such as `bandwidth_hz`, `passband`, `weighting` and
+  `detector` are preserved in the merged spec for the record. The circuit
+  validator does not interpret them; the measure is defined by the measure
+  name.
 
 ## 3. Merge into a circuit spec
 
@@ -149,8 +157,9 @@ Before handoff:
    passes. The ready example is `examples/mic-preamp-handoff.json`.
 2. Every `source` id exists, is `verified` in `catalog/sources.json`, and is
    listed in the handoff's own `sources[]`.
-3. Every metric references an existing requirement id.
-4. Every metric has a condition and an acceptance limit.
+3. Every non-exploratory metric references an existing requirement id.
+4. Every metric names a supported measure and has a target or limit;
+   conditions are present at the top level.
 5. Every requirement has a test method in the measurement plan.
 
 ## 5. Versioning
@@ -158,7 +167,8 @@ Before handoff:
 - Additive optional fields do not change the version.
 - Renaming or removing a field, or changing units, requires a version bump.
 - Both repos record the supported version. The circuit skill ignores unknown
-  fields but rejects a higher major `handoff_version`.
+  top-level fields but rejects a `handoff_version` other than `1` until both
+  sides adopt a new contract.
 
 ## 6. What the handoff is not
 

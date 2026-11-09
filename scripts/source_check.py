@@ -32,6 +32,21 @@ SOURCE_STATUSES = {"verified", "candidate", "broken", "superseded"}
 ACCESS_KINDS = {"open", "paywalled", "book"}
 CONFIDENCE = {"high", "medium", "low"}
 
+# Measures the sibling circuit skill can evaluate after merge.  Keep this in
+# sync with ``METRIC_MEASURES`` in circuit-design-skill/scripts/design_spec.py;
+# a handoff that names anything else is rejected here rather than at merge
+# time.  ``exploratory`` relaxes the requirement link, not the measure name.
+HANDOFF_MEASURES = {
+    "gain_db",
+    "bandwidth_hz",
+    "bandwidth_low_hz",
+    "bandwidth_width_hz",
+    "thd_percent",
+    "ein_uv",
+    "noise_uv",
+    "output_vrms",
+}
+
 REQUIRED_SOURCE_FIELDS = (
     "id", "tier", "title", "authors", "year", "venue",
     "accessed", "status", "access", "topics",
@@ -258,6 +273,10 @@ def check_handoff(path: Path, sources: dict[str, dict[str, Any]]) -> list[str]:
         measure = metric.get("measure")
         if not isinstance(measure, str) or not measure.strip():
             errors.append(f"{where}: measure must be a non-empty string")
+        elif measure not in HANDOFF_MEASURES:
+            errors.append(
+                f"{where}: unsupported measure {measure!r}; use one of "
+                f"{', '.join(sorted(HANDOFF_MEASURES))}")
         rid = metric.get("requirement")
         if rid is None:
             if not metric.get("exploratory"):

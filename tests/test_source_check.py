@@ -262,6 +262,36 @@ class TestHandoff(unittest.TestCase):
         result = self.validate(payload)
         self.assertTrue(result["ok"], result["errors"])
 
+    def test_supported_measures_pass(self):
+        measures = (
+            "gain_db",
+            "bandwidth_hz",
+            "bandwidth_low_hz",
+            "bandwidth_width_hz",
+            "thd_percent",
+            "ein_uv",
+            "noise_uv",
+            "output_vrms",
+        )
+        for measure in measures:
+            with self.subTest(measure=measure):
+                payload = self.handoff()
+                payload["metrics"] = [
+                    {"measure": measure, "max": 1.0, "requirement": "A1"}
+                ]
+                result = self.validate(payload)
+                self.assertTrue(result["ok"], result["errors"])
+
+    def test_unsupported_measure_fails(self):
+        payload = self.handoff()
+        payload["metrics"] = [
+            {"measure": "noise_uv_rms", "max": 1.0, "requirement": "A1"}
+        ]
+        result = self.validate(payload)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("unsupported measure" in e
+                            for e in result["errors"]))
+
     def test_metric_without_target_or_limit_fails(self):
         payload = self.handoff()
         payload["metrics"] = [{"measure": "gain_db", "requirement": "A1"}]
