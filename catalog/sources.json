@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "policy": "Only sources with status=verified may be cited. See references/source-policy.md.",
   "sources": [
     {
@@ -1296,6 +1296,139 @@
         "small-signal-audio"
       ],
       "note": "Copyright March 2015; updated February 2021. Named-author practitioner article; the circuits were simulated but not built as shown."
+    },
+    {
+      "id": "S061",
+      "tier": 3,
+      "title": "Semiconductor Safe Operating Area",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2003,
+      "venue": "Elliott Sound Products (sound-au.com)",
+      "doi": null,
+      "url": "https://sound-au.com/soa.htm",
+      "accessed": "2026-11-09",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-amplifiers",
+        "safe-operating-area",
+        "thermal",
+        "protection",
+        "reactive-loads"
+      ],
+      "note": "Page created 8 August 2003; includes material from ON Semiconductor. Named-author practitioner article; use as Tier 3 guidance, not as a device datasheet."
+    },
+    {
+      "id": "S062",
+      "tier": 3,
+      "title": "Power Amplifier Stress and Power Handling Limitations",
+      "authors": [
+        "Bruce Trump"
+      ],
+      "year": 1993,
+      "venue": "Burr-Brown Corporation Application Bulletin AB-039 (SBOA022)",
+      "doi": null,
+      "url": "https://www.ti.com/lit/an/sboa022/sboa022.pdf",
+      "accessed": "2026-11-09",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-amplifiers",
+        "safe-operating-area",
+        "thermal",
+        "short-circuit",
+        "reactive-loads"
+      ],
+      "note": "April 1993. Application bulletin hosted by Texas Instruments; describes power op-amp and discrete output-stage stress."
+    },
+    {
+      "id": "S063",
+      "tier": 3,
+      "title": "Heat Sink Selection Guide",
+      "authors": [
+        "onsemi"
+      ],
+      "year": 2015,
+      "venue": "ON Semiconductor Application Note AND9016/D",
+      "doi": null,
+      "url": "https://www.onsemi.com/download/application-notes/pdf/and9016-d.pdf",
+      "accessed": "2026-11-09",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "thermal",
+        "heatsinks",
+        "power-amplifiers"
+      ],
+      "note": "February 2015, Rev. 1. Thermal-resistance model and heat-sink categories; written for power converters but the thermal chain is generic."
+    },
+    {
+      "id": "S064",
+      "tier": 3,
+      "title": "Understanding Thermal Capabilities of Automotive Class-D Amplifiers",
+      "authors": [
+        "Robert Clifton"
+      ],
+      "year": 2021,
+      "venue": "Texas Instruments Application Report SLAA996A",
+      "doi": null,
+      "url": "https://www.ti.com/lit/an/slaa996a/slaa996a.pdf",
+      "accessed": "2026-11-09",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "class-d",
+        "thermal",
+        "power-amplifiers",
+        "heatsinks"
+      ],
+      "note": "June 2021, revised June 2021. Class-D thermal model and test conditions; the worked example is for a specific automotive device."
+    },
+    {
+      "id": "S065",
+      "tier": 3,
+      "title": "Loudspeaker Protection and Muting",
+      "authors": [
+        "Rod Elliott"
+      ],
+      "year": 2022,
+      "venue": "Elliott Sound Products (sound-au.com), Project 33",
+      "doi": null,
+      "url": "https://sound-au.com/project33.htm",
+      "accessed": "2026-11-09",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "power-amplifiers",
+        "loudspeaker-protection",
+        "relays",
+        "DC-fault"
+      ],
+      "note": "Copyright October 1999; updated November 2022. Named-author practitioner article with bench measurements of relay release and DC detection."
+    },
+    {
+      "id": "S066",
+      "tier": 3,
+      "title": "Thermal Techniques",
+      "authors": [
+        "Apex Microtechnology"
+      ],
+      "year": 2012,
+      "venue": "Apex Microtechnology Application Note AN11",
+      "doi": null,
+      "url": "https://www.apexanalog.com/resources/appnotes/an11u.pdf",
+      "accessed": "2026-11-09",
+      "status": "verified",
+      "access": "open",
+      "topics": [
+        "thermal",
+        "heatsinks",
+        "reliability",
+        "power-amplifiers"
+      ],
+      "note": "October 2012, AN11U Rev G. Covers the thermal path, mounting, orientation and reliability versus junction temperature."
     }
   ]
 }

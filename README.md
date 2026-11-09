@@ -55,8 +55,9 @@ engineering:
   magnetic-induction origin of ground voltage differences; *Journal of the
   Audio Engineering Society* 74(5) (Parolo, 2026) on distortion measurement.
 - **Practitioner and manufacturer:** RaneNote 110 and 145, Douglas Self's
-  distortion work, Elliott Sound Products, Texas Instruments application notes
-  and the LM317 datasheet, THAT Corporation Design Note 140.
+  distortion work, Elliott Sound Products, Texas Instruments, onsemi and Apex
+  Microtechnology application notes, the LM317 datasheet, and THAT Corporation
+  Design Note 140.
 
 ## Quick start
 
@@ -64,6 +65,7 @@ engineering:
 2. Read the relevant knowledge document:
    [`analog-design.md`](references/analog-design.md),
    [`small-signal-audio.md`](references/small-signal-audio.md),
+   [`power-amplifiers.md`](references/power-amplifiers.md),
    [`power-supplies.md`](references/power-supplies.md),
    [`grounding-shielding.md`](references/grounding-shielding.md) or
    [`measurement.md`](references/measurement.md).
@@ -95,7 +97,7 @@ tests/                    unit tests
 ## Status
 
 This repository is built evidence-first. Governance, the registry, the handoff
-contract and validator, and five knowledge documents are in place:
+contract and validator, and six knowledge documents are in place:
 
 - [`references/analog-design.md`](references/analog-design.md) — noise, op-amp
   selection, distortion mechanisms, output stages and a microphone-preamplifier
@@ -103,6 +105,9 @@ contract and validator, and five knowledge documents are in place:
 - [`references/small-signal-audio.md`](references/small-signal-audio.md) —
   levels, impedance, gain distribution, buffers, balanced and unbalanced
   interfaces, input protection, RF immunity and tone controls;
+- [`references/power-amplifiers.md`](references/power-amplifiers.md) — load
+  envelope, output-stage choice, thermal chain, SOA and derating, short-circuit
+  and speaker protection, reactive loads and Class-D thermal notes;
 - [`references/power-supplies.md`](references/power-supplies.md) — transformer,
   rectifier and reservoir sizing, LM317/LDO regulators, capacitance
   multipliers, PSRR, fusing and supply layout;

@@ -103,8 +103,9 @@ Choose the block diagram and write the stage-by-stage budgets:
 
 Use `templates/stage-budget.md` and `templates/psu-budget.md`. Use
 `references/analog-design.md` for the noise, op-amp, distortion and output-stage
-method, and `references/power-supplies.md` for the supply budget and regulator
-choices.
+method, `references/power-amplifiers.md` for the load, thermal, SOA and
+protection budgets, and `references/power-supplies.md` for the supply budget
+and regulator choices.
 
 ### 3. Topology and parts
 
@@ -159,6 +160,9 @@ These are written from the claims in `evidence/` and each carries a
 - `references/small-signal-audio.md` — levels, impedance, gain distribution,
   buffers, balanced and unbalanced interfaces, input protection, RF immunity
   and tone controls.
+- `references/power-amplifiers.md` — load envelope, output-stage choice,
+  thermal chain, SOA and derating, short-circuit and speaker protection,
+  reactive loads and Class-D thermal notes.
 - `references/power-supplies.md` — transformer, rectifier and reservoir
   sizing, LM317/LDO regulators, capacitance multipliers, PSRR, fusing, inrush
   and supply layout.
@@ -167,9 +171,8 @@ These are written from the claims in `evidence/` and each carries a
 - `references/measurement.md` — THD, THD+N, IMD, S/N, EIN, CMRR, crosstalk,
   maximum levels and BS.1770 loudness.
 
-Planned but not yet written: `power-amplifiers.md`,
-`audio-topologies.md`, `acoustics.md`, `psychoacoustics.md`,
-`production.md`. Their open questions and the coverage
+Planned but not yet written: `audio-topologies.md`, `acoustics.md`,
+`psychoacoustics.md`, `production.md`. Their open questions and the coverage
 that already exists are tracked in `references/content-plan.md`.
 
 ## Handoff to circuit-design-skill

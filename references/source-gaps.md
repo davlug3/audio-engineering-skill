@@ -6,16 +6,16 @@ standing in for research.
 
 ## Current state
 
-- The registry has 60 entries: 30 `verified` and 30 `candidate`. Only verified
+- The registry has 66 entries: 36 `verified` and 30 `candidate`. Only verified
   entries may be cited.
-- 221 claim records exist across five evidence files:
+- 267 claim records exist across six evidence files:
   `analog-design.jsonl` (48), `small-signal.jsonl` (31),
-  `power-supplies.jsonl` (68), `grounding-shielding.jsonl` (45) and
-  `measurement.jsonl` (29).
-- Five knowledge documents are written: `analog-design.md`,
-  `small-signal-audio.md`, `power-supplies.md`, `grounding-shielding.md` and
-  `measurement.md`. They are evidence-backed practitioner guidance, not
-  standards claims.
+  `power-amplifiers.jsonl` (46), `power-supplies.jsonl` (68),
+  `grounding-shielding.jsonl` (45) and `measurement.jsonl` (29).
+- Six knowledge documents are written: `analog-design.md`,
+  `small-signal-audio.md`, `power-amplifiers.md`, `power-supplies.md`,
+  `grounding-shielding.md` and `measurement.md`. They are evidence-backed
+  practitioner guidance, not standards claims.
 - `python scripts/source_check.py --strict --handoff examples/mic-preamp-handoff.json`
   passes, including the handoff contract checks.
 
@@ -23,9 +23,9 @@ standing in for research.
 
 | Topic | What is missing |
 |---|---|
-| Analog design | Thermal resistance, heatsink sizing and safe operating area for output devices; short-circuit and SOA protection; reactive-load ruggedness; op-amp stability/compensation and capacitive-load isolation; valve design; blind listening evidence for "sound quality" claims |
+| Analog design | Op-amp stability/compensation and capacitive-load isolation; valve design; blind listening evidence for "sound quality" claims. Thermal/SOA and protection moved to `power-amplifiers.md` |
 | Small-signal audio | The document is written, but ESD/line-overvoltage protection, RF immunity test levels, parametric-EQ design procedure, transformer selection for isolation, balanced-output short-circuit protection, and potentiometer law/tolerance effects remain unsupported |
-| Power amplifiers | A dedicated document; thermal/SOA design; protection; reactive-load behaviour; Class-D; valve amplifiers; output-stage distortion beyond Self's measurements |
+| Power amplifiers | Written as Tier 3 practitioner guidance. Missing: a Tier 1 or Tier 2 thermal/SOA source; a second independent source for relay DC practice; valve amplifiers; Class-D modulator, dead-time, output-filter and EMI design; output-stage distortion beyond Self's measurements; long-term thermal cycling and solder fatigue |
 | Power supplies | Switch-mode supply design for audio; mains creepage, clearance and insulation coordination; UL 6500/UL 62368-1/IEC 60065 full text; transformer thermal design; reservoir capacitor lifetime and ESR derating; bleeder sizing; soft-start component selection; LDO end-of-life stability; PSRR injection fixture |
 | Grounding | Shield transfer impedance and shielding-effectiveness numbers; RF immunity standards; UL 943 and IEC 61008/61009 full text; isolation-transformer selection; turntable/tonearm grounding; PCB stackup and return paths; leakage-current measurement method. Premises-wiring magnetic induction is covered by S056, and UL summaries of leakage and GFCI limits by S058/S059, but the standard text and the shield-transfer/PCB-level material are not |
 | Measurement | IEC 60268-3 and AES17 in full text; the full text of S057 (only its abstract is used); analyzer calibration; notch-filter design; FFT windowing and leakage; acoustic measurements; psychoacoustic audibility; PSRR fixture; true-peak implementation beyond BS.1770 scope |
@@ -76,7 +76,7 @@ design rule, while the research protocol required two independent sources.
 The policy now says: two independent sources are required; Tier 1/2 is
 preferred; where only Tier 3 exists, label the rule **practitioner guidance**
 and record the gap. Safety, regulatory and perceptual claims still require the
-governing standard or peer-reviewed evidence. This is the rule used by the five
+governing standard or peer-reviewed evidence. This is the rule used by the six
 documents above.
 
 ## Source access issues
@@ -94,10 +94,10 @@ remain `candidate` and are not cited.
 
 1. Open IEC 60268-3 and AES17 in full text and add clause-level claims for the
    measurement definitions that currently come from RaneNote 145.
-2. Add peer-reviewed sources for power-amplifier distortion and thermal/SOA
-   design; the current power-amplifier material is mostly Self and ESP.
-3. Add a manufacturer application note or standard for output-device SOA and
-   heatsink design.
+2. Add a Tier 1 or Tier 2 source for power-amplifier thermal design and SOA;
+   the current material is Tier 3 (Self, ESP, TI, onsemi and Apex).
+3. Add a second independent source for loudspeaker-protection relay DC
+   practice, and a manufacturer or standard source for DC offset limits.
 4. Add a source for switch-mode supply noise, layout and PSRR in audio.
 5. Add acoustics and psychoacoustics sources before writing those documents.
 6. Add a source for shield transfer impedance and RF immunity test levels.

@@ -355,10 +355,11 @@ guarantee for a different topology, layout or parts.
    signal.
 
 Thermal design, safe operating area, short-circuit protection and reactive-load
-ruggedness are **not yet evidenced** in this registry. Do not invent numbers
-for them. Use the device datasheet's SOA curves, the supplier's thermal
-application notes and a thermal simulation, and record the sources before
-publishing a rule.
+ruggedness are covered in `power-amplifiers.md`. That document adds the thermal
+chain, device derating, second breakdown, short-circuit stress and
+loudspeaker-protection material. Use it with the exact device datasheet's SOA
+curves and a thermal simulation; the application-note values are starting
+points, not device ratings.
 
 ## 6. Microphone-preamplifier case study
 
@@ -485,10 +486,10 @@ All sources below were opened on 2026-11-08. Claim locators are in
 
 ## Unverified and open gaps
 
-- Thermal resistance, heatsink sizing and safe operating area for output
-  devices: no verified source in the registry yet.
-- Short-circuit protection, SOA protection and reactive-load ruggedness: no
-  verified source yet.
+- Thermal resistance, heatsink sizing, safe operating area, short-circuit
+  protection and reactive-load ruggedness: now covered in
+  `power-amplifiers.md`, but the sources are Tier 3 practitioner material, not
+  standards. The remaining gaps are recorded there.
 - Op-amp stability, capacitive-load isolation and decoupling: no numeric claim
   yet; simulate and use the exact datasheet.
 - Valve (tube) design: no verified source yet.
