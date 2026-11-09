@@ -56,6 +56,16 @@ A single JSON file, conventionally `handoff.json`:
 }
 ```
 
+### Terminology (audio ↔ circuit)
+
+| Term | Audio handoff | Circuit spec / merge |
+|---|---|---|
+| Source ID | `S###` in `requirements[].source` and `sources[]`; must resolve to a **verified** registry entry | Copied into `design.sources[]` (record title/document/URL/revision/accessed as available); circuit evidence may add datasheet/app-note sources |
+| Requirement ID | `A#`/project requirement ID in `requirements[].id` | `design.requirements[].id` (or merged equivalent); metrics must reference an existing requirement |
+| Conditions | `conditions` and per-requirement/metric acceptance text | Merged into `metrics.conditions` and/or relevant `analyses[]` (level, frequency, bandwidth, load, source impedance, weighting/method) |
+| Metric | Audio `measure`/target/limit with `requirement` (or `exploratory: true`) | Circuit adds electrical `id`, `analysis`, `output`/`input` node variables, and analysis-specific fields; unsupported measures stay `exploratory`/unverified |
+| Risk | `risks[]` | `design.risks[]` with mitigation and verification method |
+
 ## 2. Field rules
 
 - `handoff_version` is required and must be `1`.

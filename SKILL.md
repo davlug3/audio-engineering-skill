@@ -83,6 +83,24 @@ noise targets, power available, environment, cost and safety class. Use
 `templates/audio-requirements.md`. If the user cannot answer, propose a default,
 cite the basis and record it as an assumption.
 
+**Defaults confirmation gate (required before generating artifacts):** when the
+user gives an ambiguous answer (e.g. “yes/proceed/use defaults”), restate the
+locked defaults and assumptions explicitly and get a clear confirmation (for
+example: `defaults confirmed` or a list of changes). Do not silently lock
+revision/topology, power, bypass, build form factor, or anchor sources.
+
+**Using in a target project (external repo):** the skill’s own
+`catalog/sources.json`/`evidence/` are examples, not the project’s registry.
+Bootstrap project-local evidence with:
+
+```bash
+python3 <audio-engineering-skill>/scripts/init_project_audio_evidence.py --out <project>/audio-evidence
+python3 <audio-engineering-skill>/scripts/source_check.py --strict \
+  --catalog <project>/audio-evidence/catalog/sources.json \
+  --evidence-dir <project>/audio-evidence/evidence \
+  --handoff <project>/audio-evidence/handoff.json
+```
+
 ### 1. Research
 
 For each question, search the source hierarchy in

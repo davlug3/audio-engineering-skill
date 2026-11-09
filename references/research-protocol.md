@@ -104,6 +104,36 @@ Say so plainly. Produce:
 Never fill the gap from memory. An answer without sources is a plan, not a
 result.
 
+## 8a. Minimum compliant / fast path (interactive projects)
+
+Use this when you must make progress in a live design session without skipping
+traceability. It is **not** permission to guess.
+
+1. **Capture leads as `candidate`** in the project-local registry (or a clearly
+   marked lead list). Record title, author/publisher, URL/DOI if known, topic,
+   and why it matters. Candidates may **not** be cited as evidence.
+2. **Open the source before citing**. A search snippet, forum post, aggregator,
+   or AI summary is a lead only.
+3. **Promote to `verified`** only after opening the document: set `accessed`
+   (YYYY-MM-DD), confirm URL/DOI, record revision/edition, and note access
+   limits (open/paywalled/book). Safety/regulatory claims require the governing
+   standard text or official clause-level evidence.
+4. **Write the claim** to `evidence/<topic>.jsonl` with `id`, statement, value
+   (if numeric), unit, conditions, `source` (S###), `locator`
+   (section/page/clause/figure/table), `confidence`, and `checked` date. Put
+   conditions on every numeric/perceptual claim.
+5. **Mark gaps explicitly**. If you cannot verify a value, write
+   `unverified`, keep it out of final acceptance claims, and record the gap in
+   `references/source-gaps.md` (or the project’s gap log) with the test/source
+   needed.
+6. **Resolve conflicts**. Do not average contradictory numbers. Record both
+   claims, their conditions, and which source is more specific/current.
+7. **Validate before handoff**. Run `scripts/source_check.py --strict` (and
+   `--handoff <file>` when applicable). For external projects, use
+   `--catalog/--evidence-dir/--handoff` paths created by
+   `scripts/init_project_audio_evidence.py`. A failed check means the evidence
+   package is not ready.
+
 ## 9. Required answer format
 
 Every substantive audio answer ends with:

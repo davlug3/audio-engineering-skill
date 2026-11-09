@@ -81,8 +81,8 @@ def strip_code(text: str) -> str:
     return "\n".join(kept)
 
 
-def check_registry(root: Path) -> tuple[dict[str, dict[str, Any]], list[str], list[str]]:
-    path = root / "catalog" / "sources.json"
+def check_registry(root: Path, catalog_path: Path | None = None) -> tuple[dict[str, dict[str, Any]], list[str], list[str]]:
+    path = catalog_path if catalog_path is not None else root / "catalog" / "sources.json"
     errors: list[str] = []
     warnings: list[str] = []
     if not path.is_file():
@@ -163,10 +163,10 @@ def check_registry(root: Path) -> tuple[dict[str, dict[str, Any]], list[str], li
     return by_id, errors, warnings
 
 
-def check_evidence(root: Path, sources: dict[str, dict[str, Any]]) -> tuple[set[str], list[str]]:
+def check_evidence(root: Path, sources: dict[str, dict[str, Any]], evidence_dir: Path | None = None) -> tuple[set[str], list[str]]:
     errors: list[str] = []
     claims: set[str] = set()
-    directory = root / "evidence"
+    directory = evidence_dir if evidence_dir is not None else root / "evidence"
     if not directory.is_dir():
         return claims, errors
     for path in sorted(directory.glob("*.jsonl")):
@@ -337,10 +337,15 @@ def check_handoff(path: Path, sources: dict[str, dict[str, Any]]) -> list[str]:
 
 
 def check_citations(root: Path, sources: dict[str, dict[str, Any]],
-                    claims: set[str]) -> tuple[int, list[str]]:
+                    claims: set[str], references_dir: Path | None = None,
+                    templates_dir: Path | None = None) -> tuple[int, list[str]]:
     errors: list[str] = []
     scanned = 0
-    for directory in (root / "references", root / "templates"):
+    dirs = [
+        references_dir if references_dir is not None else root / "references",
+        templates_dir if templates_dir is not None else root / "templates",
+    ]
+    for directory in dirs:
         if not directory.is_dir():
             continue
         for path in sorted(directory.glob("*.md")):
@@ -363,10 +368,10 @@ def check_citations(root: Path, sources: dict[str, dict[str, Any]],
     return scanned, errors
 
 
-def check_docs(root: Path, strict: bool) -> tuple[int, list[str], list[str]]:
+def check_docs(root: Path, strict: bool, references_dir: Path | None = None) -> tuple[int, list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
-    directory = root / "references"
+    directory = references_dir if references_dir is not None else root / "references"
     if not directory.is_dir():
         return 0, errors, warnings
     checked = 0
@@ -390,15 +395,20 @@ def check_docs(root: Path, strict: bool) -> tuple[int, list[str], list[str]]:
 
 
 def check(root: Path, strict: bool = False,
-          handoffs: list[str] | None = None) -> dict[str, Any]:
-    sources, registry_errors, registry_warnings = check_registry(root)
+          handoffs: list[str] | None = None,
+          catalog_path: Path | None = None,
+          evidence_dir: Path | None = None,
+          references_dir: Path | None = None,
+          templates_dir: Path | None = None) -> dict[str, Any]:
+    sources, registry_errors, registry_warnings = check_registry(root, catalog_path=catalog_path)
     errors = list(registry_errors)
     warnings = list(registry_warnings)
-    claims, evidence_errors = check_evidence(root, sources)
+    claims, evidence_errors = check_evidence(root, sources, evidence_dir=evidence_dir)
     errors.extend(evidence_errors)
-    scanned, citation_errors = check_citations(root, sources, claims)
+    scanned, citation_errors = check_citations(
+        root, sources, claims, references_dir=references_dir, templates_dir=templates_dir)
     errors.extend(citation_errors)
-    docs, doc_errors, doc_warnings = check_docs(root, strict)
+    docs, doc_errors, doc_warnings = check_docs(root, strict, references_dir=references_dir)
     errors.extend(doc_errors)
     warnings.extend(doc_warnings)
     handoff_paths = [Path(path) for path in handoffs or []]
@@ -443,10 +453,24 @@ def main(argv: list[str] | None = None) -> int:
                         help="treat missing Sources sections as errors")
     parser.add_argument("--handoff", action="append", default=[], metavar="PATH",
                         help="validate a handoff JSON file (repeatable)")
+    parser.add_argument("--catalog", metavar="PATH",
+                        help="registry JSON (default: <root>/catalog/sources.json)")
+    parser.add_argument("--evidence-dir", metavar="PATH",
+                        help="evidence directory of JSONL claims (default: <root>/evidence)")
+    parser.add_argument("--references-dir", metavar="PATH",
+                        help="knowledge/reference markdown directory (default: <root>/references)")
+    parser.add_argument("--templates-dir", metavar="PATH",
+                        help="template markdown directory (default: <root>/templates)")
     args = parser.parse_args(argv)
 
-    result = check(Path(args.root).resolve(), strict=args.strict,
-                   handoffs=args.handoff)
+    root = Path(args.root).resolve()
+    result = check(
+        root, strict=args.strict, handoffs=args.handoff,
+        catalog_path=Path(args.catalog).resolve() if args.catalog else None,
+        evidence_dir=Path(args.evidence_dir).resolve() if args.evidence_dir else None,
+        references_dir=Path(args.references_dir).resolve() if args.references_dir else None,
+        templates_dir=Path(args.templates_dir).resolve() if args.templates_dir else None,
+    )
     if args.json:
         print(json.dumps(result, indent=2))
     else:

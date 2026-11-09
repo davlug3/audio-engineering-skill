@@ -3,11 +3,22 @@
 Fill this before choosing a topology. A number without conditions is not a
 requirement.
 
+## 0. Defaults confirmation gate
+
+Before generating handoff/spec artifacts, restate locked defaults and
+assumptions and get explicit confirmation (e.g. `defaults confirmed`) or a list
+of changes. Do not silently lock revision/topology, power, bypass, build form
+factor, anchor source, or unverified substitutions.
+
 ## 1. Application
 
 | Field | Value |
 |---|---|
 | Application | |
+| **Target revision/topology** (if a clone/variant family exists) | |
+| **Primary anchor source** (schematic/analysis/datasheet link or name) | |
+| **Known conflicts between sources** | |
+| **Allowed substitutions** (parts/values/features) | |
 | Reference product or standard | |
 | Signal source | |
 | Load | |
